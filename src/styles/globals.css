@@ -1,0 +1,87 @@
+/* Base styles copied from the design's shared <style> block (Todara Website v4). */
+:root {
+  --forest: #1e3a2f;
+  --forest-hover: #2a4a3b;
+  --bark: #3a2a1f;
+  --cream: #f4efe4;
+  --paper: #fbfaf6;
+  --sand: #e9e4d8;
+  --honey: #c9973f;
+  --leaf: #6f9a4c;
+  --muted: #5c4a3c;
+  --error: #a3361f;
+  --gutter: clamp(20px, 4vw, 48px);
+  --page-max: 1320px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4efe4;
+  color: #3a2a1f;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #1e3a2f;
+}
+
+/* Zero-specificity hover: an element's own colour wins, exactly like the design's inline styles. */
+a:where(:hover) {
+  color: #6f9a4c;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: #c9973f;
+  color: #3a2a1f;
+}
+
+/*
+ * Keyboard focus ring from the design. The design's buttons reset every property inline (all:unset), which
+ * also hides this ring on them; it is kept here so keyboard users can always see where they are.
+ */
+:focus-visible {
+  outline: 2px solid #c9973f !important;
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Visually hidden but read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
