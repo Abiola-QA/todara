@@ -1,0 +1,17 @@
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  composes: h2Xl from '@/styles/layout.module.css';
+  text-wrap: balance;
+}
+
+.more {
+  composes: ruleLink from '@/styles/layout.module.css';
+}

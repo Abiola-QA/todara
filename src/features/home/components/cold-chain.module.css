@@ -1,0 +1,82 @@
+.section {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(64px, 8vw, 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--tint);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.temp {
+  white-space: nowrap;
+  font-size: clamp(24px, 2.1vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(58, 42, 31, 0.14);
+}
+
+.n {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.detail {
+  font-size: 14.5px;
+  color: #5c4a3c;
+}

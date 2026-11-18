@@ -1,0 +1,85 @@
+.section {
+  composes: container from '@/styles/layout.module.css';
+  padding-bottom: clamp(64px, 8vw, 120px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 22px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fbfaf6;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #e9e4d8;
+}
+
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  border-top: 4px solid var(--dot);
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.temp {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.buyer {
+  font-size: 15px;
+  color: #5c4a3c;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6px;
+}
+
+.item {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 0;
+  border-top: 1px solid rgba(58, 42, 31, 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.item:hover {
+  color: #1e3a2f;
+}
+
+.arrow {
+  color: #1e3a2f;
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}

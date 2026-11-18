@@ -1,0 +1,81 @@
+.band {
+  composes: paperBand from '@/styles/layout.module.css';
+}
+
+.inner {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 36px 80px;
+  align-items: start;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  composes: eyebrow from '@/styles/layout.module.css';
+}
+
+.title {
+  composes: h2Xl from '@/styles/layout.module.css';
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #5c4a3c;
+  max-width: 30em;
+}
+
+.more {
+  composes: ruleLink from '@/styles/layout.module.css';
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.licence {
+  background: #ffffff;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.licenceHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.name {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.status {
+  font-size: 13px;
+  font-weight: 600;
+  background: #e3ecdd;
+  color: #1e3a2f;
+  padding: 4px 9px;
+}
+
+.issuer {
+  font-size: 14.5px;
+  color: #5c4a3c;
+}
