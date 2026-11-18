@@ -1,0 +1,51 @@
+.band {
+  background: #fbfaf6;
+  border-top: 1px solid rgba(58, 42, 31, 0.12);
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 104px) clamp(20px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 32px clamp(40px, 6vw, 96px);
+  align-items: end;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 46px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  color: #1e3a2f;
+  white-space: nowrap;
+}
+
+.text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  color: #5c4a3c;
+  max-width: 30em;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* The design's `mob` (below 700px) lets the heading wrap. */
+@media (max-width: 699.98px) {
+  .title {
+    white-space: normal;
+  }
+}

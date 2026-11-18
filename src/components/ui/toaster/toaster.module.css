@@ -1,0 +1,13 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 60;
+  background: #3a2a1f;
+  color: #f4efe4;
+  padding: 13px 20px;
+  font-size: 14.5px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  max-width: calc(100vw - 40px);
+}

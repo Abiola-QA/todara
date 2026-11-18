@@ -1,0 +1,137 @@
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 16px;
+  border: 1.5px solid #1e3a2f;
+  background: transparent;
+  color: #3a2a1f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chipOn {
+  background: #1e3a2f;
+  color: #f4efe4;
+}
+
+.frame {
+  overflow-x: auto;
+  background: #fbfaf6;
+  border: 1px solid rgba(58, 42, 31, 0.1);
+  padding: 24px 28px;
+}
+
+.table {
+  min-width: 820px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.head,
+.row {
+  display: grid;
+  grid-template-columns: 260px repeat(12, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.head {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5c4a3c;
+  padding-bottom: 8px;
+}
+
+.month {
+  text-align: center;
+}
+
+.initial {
+  display: none;
+}
+
+.row {
+  align-items: center;
+  padding: 7px 0;
+  border-top: 1px solid rgba(58, 42, 31, 0.08);
+}
+
+.name {
+  all: unset;
+  cursor: pointer;
+  grid-column: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 12px;
+}
+
+.name:hover {
+  color: #6f9a4c;
+}
+
+.productName {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.line {
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c4a3c;
+}
+
+.cell {
+  height: 36px;
+  border: 1px solid rgba(30, 58, 47, 0.14);
+}
+
+.p {
+  background: #1e3a2f;
+}
+
+.a {
+  background: repeating-linear-gradient(135deg, rgba(30, 58, 47, 0.55) 0 2px, transparent 2px 5px);
+}
+
+.o {
+  background: transparent;
+}
+
+/* The design's `mob` (below 700px): one-letter months, the product name on its own row, no minimum width. */
+@media (max-width: 699.98px) {
+  .frame {
+    padding: 16px;
+  }
+
+  .table {
+    min-width: 0;
+  }
+
+  .head,
+  .row {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .corner {
+    display: none;
+  }
+
+  .name {
+    grid-column: 1 / -1;
+  }
+
+  .full {
+    display: none;
+  }
+
+  .initial {
+    display: inline;
+  }
+}

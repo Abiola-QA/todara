@@ -1,0 +1,151 @@
+.opener {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eyebrow {
+  composes: eyebrowSm from '@/styles/layout.module.css';
+}
+
+.title {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(42px, 5.4vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: #1e3a2f;
+  text-wrap: balance;
+}
+
+.story {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 7vw, 104px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 40px clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #e9e4d8;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.lead {
+  margin: 0;
+  font-size: clamp(21px, 1.9vw, 26px);
+  line-height: 1.45;
+  font-weight: 500;
+  color: #1e3a2f;
+  text-wrap: pretty;
+}
+
+.body {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #3a2a1f;
+  text-wrap: pretty;
+}
+
+.facts {
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-top: 1px solid rgba(58, 42, 31, 0.14);
+  border-left: 1px solid rgba(58, 42, 31, 0.14);
+}
+
+.fact {
+  padding: 20px;
+  border-right: 1px solid rgba(58, 42, 31, 0.14);
+  border-bottom: 1px solid rgba(58, 42, 31, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.factLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6f9a4c;
+}
+
+.factValue {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.band {
+  background: #fbfaf6;
+  border-top: 1px solid rgba(58, 42, 31, 0.1);
+  border-bottom: 1px solid rgba(58, 42, 31, 0.1);
+}
+
+.bandInner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 104px) clamp(20px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.h2 {
+  composes: h2Md from '@/styles/layout.module.css';
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(58, 42, 31, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #e9e4d8;
+  overflow: hidden;
+}
+
+.cardText {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.cardBody {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #5c4a3c;
+}

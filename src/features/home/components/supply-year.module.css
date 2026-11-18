@@ -1,0 +1,76 @@
+.band {
+  composes: paperBand from '@/styles/layout.module.css';
+}
+
+.inner {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 96px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 22px;
+}
+
+.list {
+  background: #ffffff;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.listTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e3a2f;
+  padding-bottom: 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid rgba(58, 42, 31, 0.1);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.name {
+  all: unset;
+  cursor: pointer;
+  font-size: 16.5px;
+  font-weight: 500;
+}
+
+.name:hover {
+  text-decoration: underline;
+}
+
+.peak {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.form {
+  font-size: 14.5px;
+  color: #5c4a3c;
+}
+
+.more {
+  composes: ruleLink from '@/styles/layout.module.css';
+}

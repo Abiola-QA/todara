@@ -1,0 +1,102 @@
+.section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 4vw, 48px) clamp(64px, 8vw, 112px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 32px clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid #3a2a1f;
+  max-width: 300px;
+}
+
+.navLink {
+  all: unset;
+  cursor: pointer;
+  padding: 14px 0 14px 14px;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.12);
+  box-shadow: inset 3px 0 0 transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #5c4a3c;
+}
+
+.navActive {
+  box-shadow: inset 3px 0 0 #c9973f;
+  color: #1e3a2f;
+}
+
+.article {
+  grid-column: span 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+}
+
+.notice {
+  background: #fbf3e2;
+  border: 1px solid rgba(201, 151, 63, 0.5);
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(38px, 4.6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.intro {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #5c4a3c;
+}
+
+.sections {
+  composes: ruleList from '@/styles/layout.module.css';
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.12);
+}
+
+.heading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.body {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+.updated {
+  font-size: 14px;
+  color: #5c4a3c;
+}
+
+/* The design's `mob` (below 700px): the article takes the full row. */
+@media (max-width: 699.98px) {
+  .article {
+    grid-column: 1 / -1;
+  }
+}

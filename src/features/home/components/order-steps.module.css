@@ -1,0 +1,67 @@
+.band {
+  background: #1e3a2f;
+  color: #f4efe4;
+}
+
+.inner {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  color: #c9973f;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(32px, 3.8vw, 54px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(244, 239, 228, 0.22);
+}
+
+.n {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c9973f;
+}
+
+.stepTitle {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.detail {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #c3cfc7;
+}

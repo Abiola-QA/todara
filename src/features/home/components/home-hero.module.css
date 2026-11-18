@@ -1,0 +1,105 @@
+.hero {
+  position: relative;
+  background: #1e3a2f;
+  overflow: hidden;
+}
+
+/*
+ * Copy column. It sits above the photo (z-index 1), matching the design, where the photo comes first in the
+ * markup and the text paints over it.
+ */
+.copy {
+  composes: container from '@/styles/layout.module.css';
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(64px, 9vw, 128px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  pointer-events: none;
+}
+
+.eyebrow {
+  font-size: 16px;
+  font-weight: 600;
+  color: #c9973f;
+}
+
+.title {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(40px, 4.8vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  color: #f4efe4;
+  text-wrap: balance;
+}
+
+.accent {
+  color: #c9973f;
+}
+
+.lead {
+  margin: 0;
+  max-width: 34em;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: #dce5de;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  pointer-events: auto;
+  padding-top: 6px;
+}
+
+.whatsapp {
+  padding: 14.5px 4px;
+  color: #f4efe4;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Below 980px (the design's `narrow`) the photo stacks under the copy. */
+.photoWrap {
+  position: relative;
+  padding: 0 clamp(20px, 4vw, 48px) 36px;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  /* The optimiser's resized file can round the ratio; keep the original 1200×551 so the layout matches. */
+  aspect-ratio: 1200 / 551;
+  margin: 0 auto;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.28));
+}
+
+/* From 980px (the design's `wide`) the photo floats at the right, centred on the section's height. */
+@media (min-width: 980px) {
+  .photoWrap {
+    position: static;
+    padding: 0;
+  }
+
+  .photo {
+    position: absolute;
+    right: clamp(24px, 4vw, 64px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(38%, 540px);
+    max-width: none;
+    margin: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.28));
+  }
+}

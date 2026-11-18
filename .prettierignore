@@ -1,0 +1,7 @@
+design-reference
+.compare
+.next
+pnpm-lock.yaml
+public/media
+test-results
+playwright-report
