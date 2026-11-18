@@ -1,0 +1,444 @@
+.section {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 40px clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* ---- Left column ---- */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.eyebrow {
+  composes: eyebrow from '@/styles/layout.module.css';
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.lead {
+  margin: 0;
+  font-size: 17.5px;
+  line-height: 1.6;
+  color: #5c4a3c;
+  max-width: 30em;
+}
+
+.waCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  background: #1e3a2f;
+  color: #f4efe4;
+  text-decoration: none;
+}
+
+.waText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.waLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9973f;
+}
+
+.waNumber {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.waOpen {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  font-size: 15.5px;
+  border-top: 1.5px solid #3a2a1f;
+}
+
+.contactLabel,
+.contactValue {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.12);
+}
+
+.contactLabel {
+  color: #5c4a3c;
+}
+
+/* ---- Right column ---- */
+.panel {
+  background: #fbfaf6;
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+}
+
+.groupTitle {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.saved {
+  font-size: 13.5px;
+  color: #5c4a3c;
+}
+
+.empty {
+  border: 1.5px dashed rgba(58, 42, 31, 0.3);
+  padding: 20px;
+  font-size: 15.5px;
+  color: #5c4a3c;
+}
+
+.item {
+  background: #ffffff;
+  border-left: 4px solid var(--dot);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.itemName {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-size: 17.5px;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.formLabel {
+  font-size: 13.5px;
+  color: #5c4a3c;
+}
+
+.itemActions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex: none;
+}
+
+.view {
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a2f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.view:hover {
+  color: #6f9a4c;
+}
+
+.remove {
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5c4a3c;
+}
+
+.remove:hover {
+  color: #a3361f;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionLabel {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  all: unset;
+  cursor: pointer;
+  padding: 7px 11px;
+  font-size: 14px;
+  border: 1.5px solid #1e3a2f;
+  background: #ffffff;
+  color: #3a2a1f;
+}
+
+.chipOn {
+  background: #1e3a2f;
+  color: #f4efe4;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input {
+  padding: 12px 14px;
+  border: 1px solid rgba(58, 42, 31, 0.3);
+  background: #ffffff;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: 2px solid #c9973f;
+  outline-offset: 0;
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.error {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a3361f;
+}
+
+.addLabel {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid rgba(58, 42, 31, 0.2);
+  font-size: 14px;
+}
+
+.add:hover {
+  border-color: #1e3a2f;
+}
+
+.addDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(58, 42, 31, 0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+}
+
+.consentWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.consent {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.box {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border: 1.5px solid #1e3a2f;
+  background: #ffffff;
+  color: #f4efe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.boxOn {
+  background: #1e3a2f;
+}
+
+.consentError {
+  composes: error;
+  padding-left: 32px;
+}
+
+.submitRow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.submit {
+  all: unset;
+  cursor: pointer;
+  padding: 16px 28px;
+  background: #1e3a2f;
+  color: #f4efe4;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.submit:hover {
+  background: #c9973f;
+  color: #3a2a1f;
+}
+
+.submit:disabled {
+  cursor: progress;
+}
+
+.privacy {
+  all: unset;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: #1e3a2f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sendError {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #a3361f;
+}
+
+/* ---- Confirmation ---- */
+.sent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 0;
+}
+
+.received {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6f9a4c;
+}
+
+.receivedDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6f9a4c;
+}
+
+.thanks {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #1e3a2f;
+}
+
+.sentText {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #5c4a3c;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  font-size: 15px;
+  border-top: 1px solid rgba(58, 42, 31, 0.14);
+}
+
+.summary > * {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.12);
+}
+
+.summaryLabel {
+  color: #5c4a3c;
+}
+
+.summaryItems {
+  line-height: 1.5;
+}
+
+.sentActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
