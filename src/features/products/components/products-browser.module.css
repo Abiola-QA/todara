@@ -1,0 +1,86 @@
+/* ---- Intro and form tabs ---- */
+.intro {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(48px, 7vw, 96px);
+  padding-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eyebrow {
+  composes: eyebrow from '@/styles/layout.module.css';
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(42px, 5.4vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+}
+
+.lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  color: #5c4a3c;
+  max-width: 40em;
+}
+
+.allSheets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1.5px solid #1e3a2f;
+  color: #1e3a2f;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pdf {
+  composes: pdfTag from '@/styles/layout.module.css';
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+}
+
+.tab {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 16px;
+  border: 1.5px solid #1e3a2f;
+  background: transparent;
+  color: #3a2a1f;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.tab[aria-pressed='true'] {
+  background: #1e3a2f;
+  color: #f4efe4;
+}
+
+/* ---- Product grid ---- */
+.grid {
+  composes: container from '@/styles/layout.module.css';
+  padding-bottom: clamp(56px, 7vw, 96px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 22px;
+}

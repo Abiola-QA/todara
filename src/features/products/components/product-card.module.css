@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fbfaf6;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #e9e4d8;
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  pointer-events: none;
+  background: var(--badge-bg);
+  color: var(--badge-ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+
+.body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.name {
+  all: unset;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1e3a2f;
+}
+
+.name:hover {
+  text-decoration: underline;
+}
+
+.short {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #5c4a3c;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(58, 42, 31, 0.08);
+  font-size: 14px;
+}
+
+.factKey {
+  color: #5c4a3c;
+}
+
+.factValue {
+  font-weight: 500;
+  margin: 0;
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Product name heading: keeps the design's look (the link carries the type). */
+.heading {
+  margin: 0;
+  font: inherit;
+  display: flex;
+}

@@ -1,0 +1,136 @@
+.band {
+  composes: paperBand from '@/styles/layout.module.css';
+}
+
+.inner {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(48px, 6vw, 88px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 40px clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  composes: h2Lg from '@/styles/layout.module.css';
+}
+
+.list {
+  composes: ruleList from '@/styles/layout.module.css';
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.1);
+  font-size: 15.5px;
+}
+
+.key {
+  color: #5c4a3c;
+}
+
+.value {
+  margin: 0;
+  font-weight: 500;
+}
+
+.docId {
+  font-size: 14px;
+  color: #5c4a3c;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.blockTight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.step {
+  background: var(--tint);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepN {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stepDetail {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #5c4a3c;
+}
+
+.months {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.month {
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c4a3c;
+  text-align: center;
+}
+
+.initial {
+  display: none;
+}
+
+.cell {
+  height: 32px;
+  border: 1px solid rgba(30, 58, 47, 0.14);
+}
+
+/* The design's `mob` (below 700px) shows month initials. */
+@media (max-width: 699.98px) {
+  .full {
+    display: none;
+  }
+
+  .initial {
+    display: inline;
+  }
+}

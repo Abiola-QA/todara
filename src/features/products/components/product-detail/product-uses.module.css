@@ -1,0 +1,65 @@
+.section {
+  composes: container from '@/styles/layout.module.css';
+  padding-top: clamp(48px, 6vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 36px clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: #1e3a2f;
+}
+
+.list {
+  composes: ruleList from '@/styles/layout.module.css';
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.use {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.1);
+  font-size: 16.5px;
+}
+
+.square {
+  composes: square from '@/styles/layout.module.css';
+  background: var(--dot);
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(58, 42, 31, 0.1);
+}
+
+.q {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.a {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #5c4a3c;
+}
