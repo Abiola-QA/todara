@@ -1,0 +1,96 @@
+.footer {
+  background: #3a2a1f;
+  color: #e3d8c6;
+  border-top: 4px solid #c9973f;
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px) 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 36px 48px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  grid-column: span 1;
+}
+
+.logo {
+  height: 42px;
+  width: auto;
+  aspect-ratio: 1213.76 / 371.04;
+  align-self: flex-start;
+  display: block;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.head {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9973f;
+  padding-bottom: 4px;
+}
+
+.link {
+  all: unset;
+  cursor: pointer;
+  font-size: 15px;
+  color: #f4efe4;
+}
+
+.link:hover {
+  color: #c9973f;
+}
+
+/* Mail and WhatsApp keep the browser's underline (plain <a> in the design) and do not change colour. */
+.contactLink {
+  font-size: 15px;
+  color: #f4efe4;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244, 239, 228, 0.16);
+  font-size: 13.5px;
+}
+
+.legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.legalLink {
+  all: unset;
+  cursor: pointer;
+  color: #f4efe4;
+}
+
+.legalLink:hover {
+  color: #c9973f;
+}

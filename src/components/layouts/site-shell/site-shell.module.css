@@ -1,0 +1,16 @@
+/* "Skip to content" link: hidden until a keyboard user tabs to it. */
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: #1e3a2f;
+  color: #f4efe4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skip:focus {
+  top: 12px;
+}

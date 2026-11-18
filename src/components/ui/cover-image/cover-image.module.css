@@ -1,0 +1,21 @@
+/* Fills its frame like the design's <image-slot> (the frame's size comes from the parent). */
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: size;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* The design's image-slot ring, drawn over the photo (see SHOW_DESIGN_RING). */
+.ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1.5px dashed currentColor;
+  opacity: 0.35;
+}

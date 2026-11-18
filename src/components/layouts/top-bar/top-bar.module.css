@@ -1,0 +1,22 @@
+/* Shown from 980px up (the design's `wide`). */
+.bar {
+  background: #1e3a2f;
+  color: #f4efe4;
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 8px clamp(20px, 4vw, 48px);
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c9973f;
+}
+
+@media (max-width: 979.98px) {
+  .bar {
+    display: none;
+  }
+}
