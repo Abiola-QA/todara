@@ -71,3 +71,6 @@ vi.stubGlobal(
 
 // jsdom does not implement scrolling; the quote form scrolls to the top after sending.
 vi.stubGlobal('scrollTo', vi.fn());
+
+// jsdom has no layout, so no scrollIntoView; forms call it to bring the first error into view.
+Element.prototype.scrollIntoView = vi.fn();

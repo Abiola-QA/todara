@@ -1,4 +1,5 @@
 import { quoteStore } from '@/lib/quote';
+import { toastStore } from '@/lib/toast';
 import { renderUi, screen } from '@/testing/test-utils';
 
 import { QuoteForm } from '../components/quote-form';
@@ -7,6 +8,7 @@ describe('QuoteForm', () => {
   beforeEach(() => {
     localStorage.clear();
     quoteStore._reset();
+    toastStore.dismiss();
   });
 
   it('starts empty and adds products from the chips', async () => {
@@ -27,8 +29,35 @@ describe('QuoteForm', () => {
     expect(screen.getByText('Enter your company name')).toBeInTheDocument();
     expect(screen.getByText('Please agree so we can use your details to reply')).toBeInTheDocument();
     expect(submit).not.toHaveBeenCalled();
+    // The errors are also listed in a toast, so none is missed off screen.
+    expect(toastStore.getSnapshot()).toMatchObject({
+      tone: 'error',
+      text: 'Please fix these 6 things before sending:',
+      items: [
+        'Add at least one product',
+        'Enter your company name',
+        'Enter your name',
+        'Enter a valid work email',
+        'Enter your country',
+        'Please agree so we can use your details to reply',
+      ],
+    });
     await user.type(screen.getByRole('textbox', { name: /Company/ }), 'Acme');
     expect(screen.queryByText('Enter your company name')).not.toBeInTheDocument();
+  });
+
+  it('jumps to the first field that needs fixing and names the single problem in the toast', async () => {
+    quoteStore.add('hass');
+    quoteStore.setItem('hass', 'volume', '20 t');
+    quoteStore.setDetail('company', 'Acme');
+    quoteStore.setDetail('name', 'Jane');
+    quoteStore.setDetail('email', 'not-an-email');
+    quoteStore.setDetail('country', 'Oman');
+    const { user } = renderUi(<QuoteForm submit={vi.fn()} />);
+    await user.click(screen.getByRole('checkbox'));
+    await user.click(screen.getByRole('button', { name: 'Send enquiry' }));
+    expect(toastStore.getSnapshot()).toMatchObject({ tone: 'error', text: 'Enter a valid work email' });
+    expect(screen.getByRole('textbox', { name: /Work email/ })).toHaveFocus();
   });
 
   it('sends a complete quote, shows the confirmation and clears the products', async () => {
@@ -69,6 +98,7 @@ describe('QuoteForm', () => {
     await user.click(screen.getByRole('checkbox'));
     await user.click(screen.getByRole('button', { name: 'Send enquiry' }));
     expect(await screen.findByRole('alert')).toHaveTextContent('We could not send your enquiry just now.');
+    expect(toastStore.getSnapshot()).toMatchObject({ tone: 'error', text: 'We could not send your enquiry just now.' });
     expect(quoteStore.getSnapshot().basket).toHaveLength(1);
   });
 });
