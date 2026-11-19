@@ -29,6 +29,6 @@ describe('CompliancePage', () => {
     const buttons = screen.getAllByRole('button', { name: /Request a copy/ });
     expect(buttons).toHaveLength(licences.length);
     await user.click(buttons[0] as HTMLElement);
-    expect(toastStore.getSnapshot()).toBe(REQUEST_COPY_MESSAGE);
+    expect(toastStore.getSnapshot()?.text).toBe(REQUEST_COPY_MESSAGE);
   });
 });

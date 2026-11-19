@@ -39,6 +39,10 @@ The site reproduces "Todara Website v4.dc.html" exactly. That file is one page t
 
 - Product search matches each word of the query on its own, in any order (the design matched the whole phrase,
   so its own placeholder example "IQF dice" found nothing). Changed on the client's request, 19 November 2026.
+- Toasts sit at the top right under the header (the design put its confirmation at the bottom centre), and
+  forms show an error toast listing what to fix, then scroll to and focus the first problem. Client's request,
+  19 November 2026. Any form can do the same with `useFormErrorFeedback` (`src/hooks`): mark fields with
+  `aria-invalid="true"` and stand-alone messages with `data-form-error`.
 
 ## Verifying a change
 

@@ -1,13 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useTransition, type CSSProperties, type FormEvent } from 'react';
+import { useRef, useState, useTransition, type CSSProperties, type FormEvent } from 'react';
 
 import { SpamGuardFields } from '@/components/forms';
 import { Button } from '@/components/ui/button';
 import { paths } from '@/config/paths';
+import { useFormErrorFeedback } from '@/hooks/use-form-error-feedback';
 import { formOf, productById, products } from '@/lib/catalog';
 import { quoteStore, useQuote, type QuoteDetails } from '@/lib/quote';
+import { showErrorToast } from '@/lib/toast';
 import { cn } from '@/utils/cn';
 
 import { QUOTE_PAYLOAD_FIELD } from '../actions/quote-schema';
@@ -36,6 +38,9 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
   const [sendError, setSendError] = useState('');
   const [sent, setSent] = useState<SentSummary | null>(null);
   const [pending, startTransition] = useTransition();
+  const formRef = useRef<HTMLFormElement>(null);
+  // Errors can sit above or below the part of the page in view: list them in a toast and jump to the first.
+  const reportErrors = useFormErrorFeedback(formRef);
 
   const setField = <K extends keyof QuoteDetails>(key: K, value: QuoteDetails[K]) => {
     quoteStore.setDetail(key, value);
@@ -58,6 +63,7 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
     const found = validateQuote(basket, details, consent);
     if (Object.keys(found).length) {
       setErrs(found);
+      reportErrors(Object.values(found));
       return;
     }
     const data = new FormData(e.currentTarget);
@@ -67,15 +73,20 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
       try {
         const result = await submit(data);
         if (!result.ok) {
-          setErrs((result.fieldErrors ?? {}) as QuoteErrors);
+          const fieldErrors = (result.fieldErrors ?? {}) as QuoteErrors;
+          setErrs(fieldErrors);
           setSendError(result.message);
+          if (Object.keys(fieldErrors).length) reportErrors(Object.values(fieldErrors));
+          else showErrorToast(result.message);
           return;
         }
         setSent(sentSummary(result.ref, snapshot.basket, snapshot.details));
         quoteStore.clearBasket();
         window.scrollTo({ top: 0 });
       } catch {
-        setSendError('We could not send your enquiry just now. Please check your connection and try again.');
+        const message = 'We could not send your enquiry just now. Please check your connection and try again.';
+        setSendError(message);
+        showErrorToast(message);
       }
     });
   };
@@ -153,7 +164,7 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
   );
 
   return (
-    <form className={styles.form} onSubmit={onSubmit} noValidate aria-busy={pending || undefined}>
+    <form ref={formRef} className={styles.form} onSubmit={onSubmit} noValidate aria-busy={pending || undefined}>
       <SpamGuardFields />
       <div className={styles.formHead}>
         <h2 className={styles.groupTitle}>Products</h2>
@@ -209,7 +220,11 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
           </div>
         );
       })}
-      {errs.basket && <span className={styles.error}>{errs.basket}</span>}
+      {errs.basket && (
+        <span className={styles.error} data-form-error tabIndex={-1}>
+          {errs.basket}
+        </span>
+      )}
       {errs.vol && <span className={styles.error}>{errs.vol}</span>}
       <div className={styles.options}>
         <span className={styles.addLabel}>Add products</span>
@@ -257,6 +272,7 @@ export function QuoteForm({ submit = submitQuote }: QuoteFormProps) {
           type="button"
           role="checkbox"
           aria-checked={consent}
+          aria-invalid={errs.consent ? true : undefined}
           className={styles.consent}
           onClick={() => {
             setConsent((c) => !c);

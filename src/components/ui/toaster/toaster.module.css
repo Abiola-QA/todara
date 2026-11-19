@@ -1,13 +1,80 @@
+/*
+ * Toasts sit at the top right, just under the sticky header (the client's choice; the design placed its
+ * confirmation at the bottom centre). Below 980px there is no credentials strip above the header.
+ */
 .toast {
   position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
+  top: 84px;
+  right: 16px;
+  bottom: auto;
+  left: auto;
   z-index: 60;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 32px));
   background: #3a2a1f;
   color: #f4efe4;
   padding: 13px 20px;
   font-size: 14.5px;
+  line-height: 1.45;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-  max-width: calc(100vw - 40px);
+}
+
+@media (min-width: 980px) {
+  .toast {
+    top: 116px;
+    right: 24px;
+  }
+}
+
+/* Form errors: an error mark, a heading and the list of what to fix. */
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: min(460px, calc(100vw - 32px));
+  padding: 14px 14px 14px 16px;
+  border-left: 4px solid #a3361f;
+  text-align: left;
+}
+
+.icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #a3361f;
+  color: #f4efe4;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.items {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(244, 239, 228, 0.88);
+}
+
+.close {
+  all: unset;
+  cursor: pointer;
+  flex: none;
+  margin-left: 4px;
+  padding: 0 4px;
+  font-size: 18px;
+  line-height: 1;
+  color: rgba(244, 239, 228, 0.7);
+}
+
+.close:hover {
+  color: #f4efe4;
 }

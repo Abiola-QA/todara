@@ -33,6 +33,6 @@ describe('ProductCard', () => {
     await user.click(screen.getByRole('button', { name: '+ Add to quote' }));
     expect(quoteStore.getSnapshot().basket).toEqual([{ id: 'hass', volume: '', opt: '12–14' }]);
     expect(screen.getByRole('button', { name: 'In your quote ✓' })).toBeInTheDocument();
-    expect(toastStore.getSnapshot()).toBe('Hass avocado added to your quote');
+    expect(toastStore.getSnapshot()?.text).toBe('Hass avocado added to your quote');
   });
 });
