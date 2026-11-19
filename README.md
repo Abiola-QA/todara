@@ -51,16 +51,17 @@ Never run `pnpm build` while `pnpm dev` is running in the same folder: both writ
 
 See `.env.example`. All are optional locally.
 
-| Variable                     | Where               | Purpose                                                               |
-| ---------------------------- | ------------------- | --------------------------------------------------------------------- |
-| `SITE_URL`                   | all                 | Public origin for canonical links and the sitemap                     |
-| `SITE_INDEXING`              | Production only     | `on` lets search engines index the site (robots, sitemap, no noindex) |
-| `NEXT_PUBLIC_MEDIA_BASE_URL` | Production, Preview | Vercel Blob store origin; photos load from there                      |
-| `FORMS_DELIVERY`             | optional            | `resend` (default in production) or `none` (only logs)                |
-| `RESEND_API_KEY`             | Production          | Sending key for quote emails                                          |
-| `QUOTE_TO_EMAIL`             | optional            | Inbox for quote requests (default export@todarakenya.com)             |
-| `FORMS_FROM_EMAIL`           | optional            | Sender on a domain verified in Resend                                 |
-| `BLOB_READ_WRITE_TOKEN`      | your machine only   | Lets `pnpm media:upload` publish photos to Blob                       |
+| Variable                     | Where               | Purpose                                                                                         |
+| ---------------------------- | ------------------- | ----------------------------------------------------------------------------------------------- |
+| `SITE_URL`                   | all                 | Public origin for canonical links and the sitemap                                               |
+| `SITE_INDEXING`              | Production only     | `on` lets search engines index the site (robots, sitemap, no noindex)                           |
+| `NEXT_PUBLIC_MEDIA_BASE_URL` | Production, Preview | Vercel Blob store origin; photos load from there                                                |
+| `FORMS_DELIVERY`             | optional            | `resend` (default in production) or `none` (only logs)                                          |
+| `RESEND_API_KEY`             | Production          | Sending key for quote emails                                                                    |
+| `QUOTE_TO_EMAIL`             | optional            | Inbox for quote requests (default export@todarakenya.com)                                       |
+| `FORMS_FROM_EMAIL`           | optional            | Sender on a domain verified in Resend                                                           |
+| `EMAIL_SITE_URL`             | optional            | Website address used inside the quote emails only (links and site name); defaults to `SITE_URL` |
+| `BLOB_READ_WRITE_TOKEN`      | your machine only   | Lets `pnpm media:upload` publish photos to Blob                                                 |
 
 ## Photos on Vercel Blob
 

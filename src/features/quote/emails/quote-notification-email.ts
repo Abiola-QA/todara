@@ -1,10 +1,9 @@
-import { site } from '@/config/site';
 import { formOf, productById } from '@/lib/catalog';
 
 import type { QuoteSubmission } from '../actions/quote-schema';
 import { deskList } from '../utils/quote-summary';
 
-import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, esc } from './email-layout';
+import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, esc } from './email-layout';
 
 export type QuoteEmailInput = {
   ref: string;
@@ -117,7 +116,7 @@ export function quoteNotificationEmail({ ref, quote, receivedAt }: QuoteEmailInp
       : '');
 
   const footer =
-    `Sent from the quote form on ${esc(site.domain)}. Reply to this email to answer ${esc(first)} directly.<br>` +
+    `Sent from the quote form on ${esc(emailSiteName())}. Reply to this email to answer ${esc(first)} directly.<br>` +
     `${esc(details.name)} agreed that Todara may use these details to respond (privacy policy, Kenya Data Protection Act, 2019).`;
 
   const text = [

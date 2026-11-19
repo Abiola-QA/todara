@@ -1,5 +1,5 @@
+import { env } from '@/config/env';
 import { mediaUrl } from '@/config/media';
-import { absoluteUrl } from '@/config/seo';
 import { escapeHtml } from '@/lib/forms';
 
 /**
@@ -24,10 +24,25 @@ export const FONT = "'Albert Sans', Helvetica, Arial, sans-serif";
 
 export const esc = escapeHtml;
 
+/** The website address the emails use (EMAIL_SITE_URL, falling back to SITE_URL). */
+export function emailSiteOrigin() {
+  return env.EMAIL_SITE_URL ?? env.SITE_URL;
+}
+
+/** Absolute link to a page of the website, for emails: emailSiteUrl('/privacy'). */
+export function emailSiteUrl(path = '/') {
+  return new URL(path, `${emailSiteOrigin()}/`).toString();
+}
+
+/** The site's name as shown in email text, e.g. "todarakenya.com". */
+export function emailSiteName() {
+  return new URL(emailSiteOrigin()).hostname.replace(/^www\./, '');
+}
+
 /** Absolute URL of an email image. Photos and logos live in the Blob store, which is reachable from any inbox. */
 export function emailAsset(path: string) {
   const url = mediaUrl(path);
-  return url.startsWith('http') ? url : absoluteUrl(url);
+  return url.startsWith('http') ? url : emailSiteUrl(url);
 }
 
 /** A bulletproof button (a padded table cell), readable even where the client strips styles from links. */
