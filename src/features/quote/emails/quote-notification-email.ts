@@ -1,9 +1,8 @@
 import { formOf, productById } from '@/lib/catalog';
+import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, esc } from '@/lib/email';
 
 import type { QuoteSubmission } from '../actions/quote-schema';
 import { deskList } from '../utils/quote-summary';
-
-import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, esc } from './email-layout';
 
 export type QuoteEmailInput = {
   ref: string;

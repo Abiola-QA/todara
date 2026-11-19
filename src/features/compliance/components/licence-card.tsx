@@ -1,12 +1,6 @@
-'use client';
-
 import type { Licence } from '@/lib/content';
-import { showToast } from '@/lib/toast';
 
 import styles from './licence-card.module.css';
-
-/** The message shown when a buyer asks for a licence copy (copies go out by email, as in the design). */
-export const REQUEST_COPY_MESSAGE = 'Copies of licences are sent by email on request.';
 
 /** One licence or certificate: what it is, who issued it, what it covers and its reference. */
 export function LicenceCard({ licence }: { licence: Licence }) {
@@ -30,12 +24,6 @@ export function LicenceCard({ licence }: { licence: Licence }) {
         <dt className={styles.label}>Reference</dt>
         <dd className={styles.ref}>{licence.ref}</dd>
       </dl>
-      <div className={styles.foot}>
-        <button type="button" className={styles.request} onClick={() => showToast(REQUEST_COPY_MESSAGE)}>
-          <span className={styles.pdf}>PDF</span>
-          Request a copy
-        </button>
-      </div>
     </article>
   );
 }

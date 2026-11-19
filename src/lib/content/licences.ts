@@ -1,5 +1,3 @@
-import { site } from '@/config/site';
-
 /** Licences and certifications (the design's LICENCES). */
 export type Licence = { abbr: string; name: string; status: string; issuer: string; covers: string; ref: string };
 
@@ -10,7 +8,7 @@ export const licences: readonly Licence[] = [
     status: 'Active',
     issuer: 'Agriculture and Food Authority, Horticultural Crops Directorate (AFA–HCD)',
     covers: 'Export of avocado and mango in all forms: fresh, frozen and processed.',
-    ref: site.afaLicence,
+    ref: 'Copy on request',
   },
   {
     abbr: 'KEPHIS',

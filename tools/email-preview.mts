@@ -1,5 +1,5 @@
 /**
- * Renders the quote emails with a sample enquiry into .compare/emails/ for design review:
+ * Renders the quote and licence-request emails with sample data into .compare/emails/ for design review:
  *   node --experimental-strip-types --import ./tools/ts-loader/register.mjs tools/email-preview.mts
  * Reads .env.local so images point at the Blob store, as they will in production.
  */
@@ -9,6 +9,7 @@ if (existsSync('.env.local')) process.loadEnvFile('.env.local');
 
 const { quoteNotificationEmail } = await import('../src/features/quote/emails/quote-notification-email');
 const { quoteConfirmationEmail } = await import('../src/features/quote/emails/quote-confirmation-email');
+const { licenceRequestEmail } = await import('../src/features/compliance/emails/licence-request-email');
 
 const quote = {
   basket: [
@@ -40,4 +41,13 @@ writeFileSync('.compare/emails/notification.html', team.html);
 writeFileSync('.compare/emails/confirmation.html', buyer.html);
 writeFileSync('.compare/emails/notification.txt', team.text);
 writeFileSync('.compare/emails/confirmation.txt', buyer.text);
-console.log(`team:  ${team.subject}\nbuyer: ${buyer.subject}`);
+const licence = licenceRequestEmail('TD-L-27514', {
+  name: 'Sanne van Dijk',
+  company: 'Van Dijk Fresh Imports B.V.',
+  emails: ['sanne@vandijkfresh.example', 'quality@vandijkfresh.example'],
+  documents: ['afa', 'kephis', 'haccp'],
+  consent: true,
+} as never);
+writeFileSync('.compare/emails/licence-request.html', licence.html);
+writeFileSync('.compare/emails/licence-request.txt', licence.text);
+console.log(`team:    ${team.subject}\nbuyer:   ${buyer.subject}\nlicence: ${licence.subject}`);
