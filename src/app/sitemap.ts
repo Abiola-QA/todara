@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page(paths.specSheets, 0.6, 'monthly'),
     page(paths.privacy, 0.2, 'yearly'),
     page(paths.terms, 0.2, 'yearly'),
+    page(paths.termsOfSale, 0.2, 'yearly'),
     page(paths.cookies, 0.2, 'yearly'),
   ];
 }

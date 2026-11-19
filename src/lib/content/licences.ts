@@ -18,7 +18,7 @@ export const licences: readonly Licence[] = [
     status: 'Active',
     issuer: 'Kenya Plant Health Inspectorate Service',
     covers: 'Registered plant-produce exporter, with inspection and a phytosanitary certificate issued for every consignment.',
-    ref: '[Registration no.]',
+    ref: 'Copy on request',
   },
   {
     abbr: 'HACCP',

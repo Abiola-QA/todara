@@ -15,17 +15,17 @@ for page and state for state.
 
 ## Pages
 
-| Route                            | Page                                                         |
-| -------------------------------- | ------------------------------------------------------------ |
-| `/`                              | Home                                                         |
-| `/products`                      | All products, form tabs (`?form=fresh\|iqf\|puree`), compare |
-| `/products/[slug]`               | Nine product pages with full specification                   |
-| `/seasonality`                   | Month-by-month availability                                  |
-| `/compliance`                    | Licences, KEPHIS, shipment documents                         |
-| `/about`, `/faq`                 | About Todara, buyer questions                                |
-| `/quote`                         | Multi-product quote, saved on the buyer's device             |
-| `/spec-sheets`                   | Printable A4 specification sheets (one per product)          |
-| `/privacy`, `/terms`, `/cookies` | Legal pages (drafts, as marked in the design)                |
+| Route                                              | Page                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| `/`                                                | Home                                                         |
+| `/products`                                        | All products, form tabs (`?form=fresh\|iqf\|puree`), compare |
+| `/products/[slug]`                                 | Nine product pages with full specification                   |
+| `/seasonality`                                     | Month-by-month availability                                  |
+| `/compliance`                                      | Licences, KEPHIS, shipment documents                         |
+| `/about`, `/faq`                                   | About Todara, buyer questions                                |
+| `/quote`                                           | Multi-product quote, saved on the buyer's device             |
+| `/spec-sheets`                                     | Printable A4 specification sheets (one per product)          |
+| `/privacy`, `/terms`, `/terms-of-sale`, `/cookies` | Privacy policy, terms of use, terms of sale, cookie policy   |
 
 ## Getting started
 

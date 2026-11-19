@@ -21,6 +21,7 @@ export const companyNav = [
 /** Footer legal links. */
 export const legalNav = [
   { label: 'Privacy', href: paths.privacy },
-  { label: 'Terms', href: paths.terms },
+  { label: 'Terms of use', href: paths.terms },
+  { label: 'Terms of sale', href: paths.termsOfSale },
   { label: 'Cookies', href: paths.cookies },
 ] as const;

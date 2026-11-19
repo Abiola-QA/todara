@@ -1,74 +1,62 @@
 import { paths } from '@/config/paths';
-import { site } from '@/config/site';
 
-export type PolicyKey = 'privacy' | 'terms' | 'cookies';
+import content from './policies-content.json';
+
+export type PolicyKey = 'privacy' | 'terms' | 'sale' | 'cookies';
+
+/** A paragraph, a bullet list ("Label:: text" items get a bold label) or a table whose first row is the header. */
+type RawBlock = string | string[] | { cols: string; rows: string[][] };
+type RawPolicy = { title: string; intro: string; sections: { h: string; b: RawBlock[] }[] };
+
+export type ListItem = { label: string; text: string };
+export type PolicyBlock =
+  { kind: 'paragraph'; text: string } | { kind: 'list'; items: ListItem[] } | { kind: 'table'; columns: string; header: string[]; rows: string[][] };
+
+export type PolicySection = { heading: string; blocks: PolicyBlock[] };
 
 export type Policy = {
   key: PolicyKey;
   href: string;
   title: string;
   intro: string;
-  sections: readonly { heading: string; body: string }[];
+  sections: PolicySection[];
 };
 
-const s = (pairs: [string, string][]) => pairs.map(([heading, body]) => ({ heading, body }));
+/** "Address:: Swiss Cottages…" → bold "Address: " + text, as the design renders list items. */
+export function parseListItem(value: string): ListItem {
+  const k = value.indexOf(':: ');
+  return k > 0 ? { label: `${value.slice(0, k)}: `, text: value.slice(k + 3) } : { label: '', text: value };
+}
 
-/** The three policies (the design's LEGAL), drafted against the Kenya Data Protection Act, 2019. */
-export const policies: Record<PolicyKey, Policy> = {
-  privacy: {
-    key: 'privacy',
-    href: paths.privacy,
-    title: 'Privacy policy',
-    intro: `How ${site.legalName} collects and uses personal data, in line with the Kenya Data Protection Act, 2019.`,
-    sections: s([
-      ['Who we are', `${site.legalName}, Nairobi, Kenya, is the data controller for personal data collected through ${site.domain}.`],
-      ['What we collect', 'The details you give in an enquiry: your name, company, work email, phone or WhatsApp number, country and your order requirements.'],
-      [
-        'Why we use it',
-        'To reply to your enquiry, prepare offers and manage orders: steps taken at your request before a contract, and our legitimate interest in running our export business.',
-      ],
-      [
-        'How long we keep it',
-        'Enquiries that do not lead to an order are deleted after 24 months. Order records are kept as long as Kenyan tax and trade law requires.',
-      ],
-      ['Who we share it with', 'Only Todara staff who handle your enquiry and the providers that host our website and email. We do not sell personal data.'],
-      ['Transfers outside Kenya', 'Some providers process data outside Kenya. Where they do, we rely on the safeguards the Act requires.'],
-      ['Your rights', `You can ask to see, correct or delete your data, or object to how we use it. Write to ${site.privacyEmail}.`],
-      [
-        'Complaints',
-        'You can complain to the Office of the Data Protection Commissioner (ODPC). Todara is confirming whether it must register with the ODPC as a data controller.',
-      ],
-    ]),
-  },
-  terms: {
-    key: 'terms',
-    href: paths.terms,
-    title: 'Terms of use',
-    intro: `The terms that apply when you use ${site.domain}.`,
-    sections: s([
-      ['Using this site', `The site gives information about ${site.legalName} and its products for professional buyers.`],
-      [
-        'Product information',
-        'Specifications, seasonality and transit times are indicative. The specification that applies is the one confirmed in our written offer.',
-      ],
-      ['No contract until confirmed', 'An enquiry or quotation is not a contract. A contract exists only once both parties confirm an order in writing.'],
-      ['Intellectual property', `The Todara name, logos, text and images belong to ${site.legalName} and may not be reused without permission.`],
-      ['Liability', 'We take care to keep the site accurate but do not accept liability for decisions made on indicative information.'],
-      ['Governing law', 'These terms are governed by the laws of Kenya.'],
-    ]),
-  },
-  cookies: {
-    key: 'cookies',
-    href: paths.cookies,
-    title: 'Cookie policy',
-    intro: `Which cookies ${site.domain} uses and how to control them.`,
-    sections: s([
-      ['What cookies are', 'Small files a website stores in your browser so it works and can remember choices.'],
-      ['Essential cookies', 'Needed for the site and the quote form to work, and to remember your cookie choice. Always on.'],
-      ['Analytics cookies', 'Help us understand which pages buyers use. Only set if you accept them.'],
-      ['Changing your choice', 'Use the cookie banner or clear cookies in your browser at any time.'],
-    ]),
-  },
-};
+function toBlock(raw: RawBlock): PolicyBlock {
+  if (typeof raw === 'string') return { kind: 'paragraph', text: raw };
+  if (Array.isArray(raw)) return { kind: 'list', items: raw.map(parseListItem) };
+  const [header = [], ...rows] = raw.rows;
+  return { kind: 'table', columns: raw.cols, header, rows };
+}
 
-export const policyOrder: readonly PolicyKey[] = ['privacy', 'terms', 'cookies'];
+const hrefs: Record<PolicyKey, string> = { privacy: paths.privacy, terms: paths.terms, sale: paths.termsOfSale, cookies: paths.cookies };
+
+/** The order of the policy switcher, as in the design. */
+export const policyOrder: readonly PolicyKey[] = ['privacy', 'terms', 'sale', 'cookies'];
+
+/**
+ * The four policies, word for word from the design (policies-content.json is the design's LEGAL object).
+ * Section headings are numbered "1. Who we are", as the design shows them.
+ */
+export const policies = Object.fromEntries(
+  policyOrder.map((key) => {
+    const raw = (content as Record<PolicyKey, RawPolicy>)[key];
+    const policy: Policy = {
+      key,
+      href: hrefs[key],
+      title: raw.title,
+      intro: raw.intro,
+      sections: raw.sections.map((s, i) => ({ heading: `${i + 1}. ${s.h}`, blocks: s.b.map(toBlock) })),
+    };
+    return [key, policy];
+  }),
+) as Record<PolicyKey, Policy>;
+
+/** "Last updated" line under every policy. */
+export const POLICIES_UPDATED = '18 November 2026';

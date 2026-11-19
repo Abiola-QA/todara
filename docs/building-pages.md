@@ -11,7 +11,7 @@ The site reproduces "Todara Website v4.dc.html" exactly. That file is one page t
 - Shared data: `src/lib/catalog` (products, forms, seasons, buying terms), `src/lib/content` (FAQ, licences,
   order steps), `src/config/site.ts` (company facts), `src/config/paths.ts` (every route).
 - Client state: the quote basket (`src/lib/quote`, saved as `todara-quote-v1`), toasts (`src/lib/toast`) and the
-  cookie choice (`todara-cookie-choice`), all through `useSyncExternalStore`, so server HTML never depends on them.
+  cookie choice (`todara-cookie-v1`, the name the cookie policy lists), all through `useSyncExternalStore`, so server HTML never depends on them.
 
 ## Copying the design
 

@@ -1,0 +1,402 @@
+{
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "How Todara Ltd collects, uses and protects personal data when you visit todarakenya.com, contact us or buy from us, in line with the Kenya Data Protection Act, 2019 and its regulations.",
+    "sections": [
+      {
+        "h": "Who we are",
+        "b": [
+          "Todara Ltd is a Kenyan exporter of fresh, frozen and processed avocado and mango. We are the data controller for the personal data described in this policy.",
+          ["Address:: Swiss Cottages, Westlands, Nairobi, Kenya", "Privacy contact:: privacy@todarakenya.com", "Phone:: +254 183 062440"]
+        ]
+      },
+      {
+        "h": "Who this policy covers",
+        "b": [
+          "Visitors to our website, buyers and prospective buyers, and the people we deal with at importers, distributors, manufacturers, freight forwarders, inspection agencies and other companies we trade with."
+        ]
+      },
+      {
+        "h": "The data we collect",
+        "b": [
+          [
+            "Information you give us:: your name, job title, company, work email, phone or WhatsApp number, country, destination port and the details of your enquiry or order.",
+            "Order and account information:: billing and delivery details, company registration and tax details, import permits, payment and letter of credit records, and correspondence about shipments and claims.",
+            "Website information:: pages visited, device and browser type, and approximate location from your IP address. Analytics data is collected only if you accept analytics cookies.",
+            "Information from others:: details from freight forwarders, carriers, inspection agencies and banks involved in your orders, trade references, and public sources such as company registers and sanctions lists."
+          ],
+          "We do not ask for sensitive personal data, such as health, religion or ethnic origin. Please do not send it to us."
+        ]
+      },
+      {
+        "h": "How we use your data and why",
+        "b": [
+          "We use personal data only where the Act allows it. The legal basis for each use is shown below.",
+          {
+            "cols": "minmax(0,1.1fr) minmax(0,1fr)",
+            "rows": [
+              ["Purpose", "Legal basis"],
+              ["Replying to enquiries and preparing quotations", "Steps you ask us to take before a contract"],
+              ["Processing orders, shipping, export documents and payment", "Performance of a contract"],
+              ["Customs, tax, export licensing and plant health records", "Legal obligation"],
+              ["Checking buyers, preventing fraud and keeping our systems secure", "Our legitimate interests"],
+              ["Seasonal availability and product updates", "Consent, or legitimate interests for existing customers. You can opt out at any time."],
+              ["Website analytics", "Consent, given through the cookie banner"]
+            ]
+          },
+          "We do not make decisions about you by automated means that have legal or similarly significant effects."
+        ]
+      },
+      {
+        "h": "Who we share it with",
+        "b": [
+          "We share personal data only where needed for the purposes above:",
+          [
+            "Todara staff:: who handle your enquiry, order or account.",
+            "Service providers:: who host our website, email and files, and WhatsApp (Meta) when you message us on WhatsApp.",
+            "Logistics partners:: freight forwarders, clearing agents, shipping lines, airlines and cold stores.",
+            "Inspection and certification bodies:: including KEPHIS, AFA–HCD and independent inspectors appointed by you or by us.",
+            "Banks and insurers:: for payments, letters of credit and cargo insurance.",
+            "Advisers and authorities:: our lawyers, auditors and accountants, and government bodies where the law requires it."
+          ],
+          "We do not sell personal data. Providers that process data for us do so under written contracts that require them to keep it secure and use it only on our instructions."
+        ]
+      },
+      {
+        "h": "Transfers outside Kenya",
+        "b": [
+          "Because we export, and because some of our service providers are based abroad, your data may be transferred outside Kenya, for example to the country of import or to cloud servers in Europe or the United States.",
+          "We transfer data only where the Act allows it: where the destination has appropriate data protection safeguards, where we have contractual safeguards in place, or where the transfer is needed to carry out a contract with you or at your request."
+        ]
+      },
+      {
+        "h": "How long we keep it",
+        "b": [
+          {
+            "cols": "minmax(0,1fr) minmax(0,1fr)",
+            "rows": [
+              ["Data", "How long"],
+              ["Enquiries that do not lead to an order", "24 months after our last contact"],
+              ["Customer, order and shipment records", "As long as Kenyan tax and customs law requires, at least five years"],
+              ["Marketing preferences", "Until you opt out, then a record so we do not contact you again"],
+              ["Website analytics", "Up to 14 months"]
+            ]
+          },
+          "When data is no longer needed, we delete it or make it anonymous."
+        ]
+      },
+      {
+        "h": "How we protect it",
+        "b": [
+          "We use access controls, encrypted connections (HTTPS), password protection and limited staff access to keep personal data secure. Staff who handle personal data are bound by confidentiality.",
+          "If a personal data breach is likely to put your rights at risk, we will notify the Office of the Data Protection Commissioner within 72 hours of becoming aware of it, and tell you without undue delay where the law requires."
+        ]
+      },
+      {
+        "h": "Your rights",
+        "b": [
+          "Under the Data Protection Act you have the right to:",
+          [
+            "be informed of how your data is used",
+            "access the personal data we hold about you",
+            "have inaccurate or misleading data corrected",
+            "have data deleted that we no longer need or hold unlawfully",
+            "object to processing, including all direct marketing",
+            "restrict processing in certain circumstances",
+            "receive your data in a machine-readable format and have it sent to another organisation",
+            "withdraw consent at any time, without affecting processing already carried out"
+          ],
+          "To use any of these rights, email privacy@todarakenya.com. We may ask you to confirm your identity. We do not charge for this and will reply within the time set by the Act and its regulations.",
+          "If you are in the European Union, the United Kingdom, the United Arab Emirates, Saudi Arabia or another country with its own data protection law, you may also have rights under that law."
+        ]
+      },
+      {
+        "h": "Marketing messages",
+        "b": [
+          "We send seasonal availability and product updates only to business contacts who have asked for them or who are existing customers. Every email includes a link to unsubscribe. You can also reply STOP on WhatsApp or write to privacy@todarakenya.com."
+        ]
+      },
+      {
+        "h": "Children",
+        "b": ["Our website and services are for businesses and are not directed at children. We do not knowingly collect data from anyone under 18."]
+      },
+      {
+        "h": "Complaints",
+        "b": [
+          "If you have a concern, please contact us first at privacy@todarakenya.com. You also have the right to complain to the Office of the Data Protection Commissioner (ODPC) at www.odpc.go.ke, or to the data protection authority in your own country."
+        ]
+      },
+      {
+        "h": "Changes to this policy",
+        "b": ["We may update this policy. The date at the end of this page shows when it last changed. We will announce significant changes on this website."]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of use",
+    "intro": "These terms apply to your use of todarakenya.com. By using the website you agree to them. If you do not agree, please do not use the website.",
+    "sections": [
+      {
+        "h": "About us",
+        "b": [
+          "The website is operated by Todara Ltd, a company registered in Kenya, of Swiss Cottages, Westlands, Nairobi, Kenya. You can contact us at export@todarakenya.com or +254 183 062440."
+        ]
+      },
+      {
+        "h": "Who the website is for",
+        "b": [
+          "The website is for businesses buying produce for import, distribution, retail, food service or manufacturing. It is not intended for consumers, and nothing on it is an offer to sell to consumers."
+        ]
+      },
+      {
+        "h": "Product information",
+        "b": [
+          "Specifications, counts, cut sizes, brix, seasons, transit times and other product details are indicative and can change with the crop, the season and the market. Photographs are for illustration. The specification that applies to an order is the one confirmed in writing in our order confirmation."
+        ]
+      },
+      {
+        "h": "Quotes and orders",
+        "b": [
+          "A quote request sent through the website, by email or on WhatsApp is an enquiry, not an order, and we may decline it. A contract exists only when we confirm an order in writing. Every sale is governed by our Terms of sale."
+        ]
+      },
+      {
+        "h": "Acceptable use",
+        "b": [
+          "You must not:",
+          [
+            "use the website for any unlawful purpose or in breach of these terms",
+            "submit false or misleading details, or another person’s details",
+            "try to gain unauthorised access to the website, its servers or connected systems",
+            "introduce viruses or other harmful code, or overload the website",
+            "copy content in bulk by automated means, including scraping",
+            "impersonate Todara, or use our name or logo to mislead others"
+          ]
+        ]
+      },
+      {
+        "h": "Intellectual property",
+        "b": [
+          "The Todara name, logo, brand mark, text, photographs, specification sheets and website design are owned by or licensed to Todara Ltd and are protected by intellectual property law.",
+          "You may view the website and download specification sheets to evaluate our products within your business. You may not copy, change, republish or use this content for any other purpose without our written permission."
+        ]
+      },
+      {
+        "h": "Fraud warning",
+        "b": [
+          "Todara staff email only from addresses ending in @todarakenya.com, and we never change our bank details by email alone. If you receive an offer, invoice or payment request that appears to come from Todara but uses a different address or new bank details, do not pay. Call us on +254 183 062440 to check, and report it to export@todarakenya.com."
+        ]
+      },
+      {
+        "h": "Links to other services",
+        "b": [
+          "The website links to services run by others, such as WhatsApp. We are not responsible for their content or privacy practices, which are governed by their own terms."
+        ]
+      },
+      {
+        "h": "Availability and changes",
+        "b": [
+          "We aim to keep the website available and accurate but do not guarantee that it will be uninterrupted or free of errors. We may change, suspend or withdraw any part of it at any time."
+        ]
+      },
+      {
+        "h": "Liability",
+        "b": [
+          "The website is provided for general information. To the extent the law allows, we are not liable for any loss arising from use of, or reliance on, the website, including loss of profit, business or data. Nothing in these terms limits liability that cannot be limited by law."
+        ]
+      },
+      {
+        "h": "Privacy and cookies",
+        "b": ["Our Privacy policy and Cookie policy explain how we handle personal data and cookies on this website."]
+      },
+      {
+        "h": "Changes to these terms",
+        "b": ["We may update these terms. The version on this page applies at the time you use the website."]
+      },
+      {
+        "h": "Governing law",
+        "b": ["These terms are governed by the laws of Kenya, and the courts of Kenya have jurisdiction over any dispute arising from them."]
+      }
+    ]
+  },
+  "sale": {
+    "title": "Terms of sale",
+    "intro": "These terms apply to every quotation, order and sale of products by Todara Ltd to business buyers, unless Todara agrees different terms in a signed written contract.",
+    "sections": [
+      {
+        "h": "Definitions",
+        "b": [
+          [
+            "Todara, we, us:: Todara Ltd, Swiss Cottages, Westlands, Nairobi, Kenya.",
+            "Buyer, you:: the business that places an order.",
+            "Products:: fresh, frozen (IQF) or processed avocado and mango, and any other goods we agree to supply.",
+            "Order confirmation:: our written confirmation or pro forma invoice setting out the products, specification, quantity, price, Incoterm, shipment period and payment terms.",
+            "Contract:: the order confirmation together with these terms."
+          ]
+        ]
+      },
+      {
+        "h": "Application",
+        "b": [
+          "These terms apply instead of any terms in the buyer’s purchase order or other documents. If the order confirmation and these terms conflict, the order confirmation prevails."
+        ]
+      },
+      {
+        "h": "Quotations and orders",
+        "b": [
+          "Quotations are valid for 7 days unless they state otherwise, and depend on availability and harvest. A contract is formed only when we issue an order confirmation and the buyer accepts it in writing or pays the deposit, whichever happens first."
+        ]
+      },
+      {
+        "h": "Specification and natural variation",
+        "b": [
+          "Products are supplied to the specification in the order confirmation, including variety, count or size, cut, brix or dry matter, packaging, labelling and temperature.",
+          "Avocado and mango are natural products. Colour, size, shape and ripeness vary within the agreed tolerances, and such variation is not a defect. Website information, brochures and samples are indicative unless repeated in the order confirmation."
+        ]
+      },
+      {
+        "h": "Prices",
+        "b": [
+          "Prices are in US dollars unless agreed otherwise and apply on the Incoterm stated in the order confirmation, interpreted under Incoterms® 2020. Prices do not include import duties, taxes, inspection fees or other charges in the destination country, which the buyer pays unless the Incoterm places them on us.",
+          "On CFR, CIF or similar terms, if freight, fuel or official charges change between order confirmation and shipment, we may adjust the price to reflect the change after giving written notice."
+        ]
+      },
+      {
+        "h": "Payment",
+        "b": [
+          "Payment terms are set out in the order confirmation, for example an advance deposit with the balance against copy shipping documents, or an irrevocable letter of credit from a bank acceptable to us.",
+          "Payment is due in full by the due date, without deduction or set-off. Each party pays its own bank’s charges. If payment is late, we may charge interest at 1.5% per month on the overdue amount, suspend further shipments and hold original documents until we are paid."
+        ]
+      },
+      {
+        "h": "Payment security",
+        "b": [
+          "Our bank details appear only in the signed order confirmation or pro forma invoice, and we never change them by email alone. Before paying, call +254 183 062440 to confirm any bank details that are new to you. We are not responsible for payments sent to an account other than ours as a result of fraud where the buyer did not confirm the details with us."
+        ]
+      },
+      {
+        "h": "Shipment and delivery",
+        "b": [
+          "Shipment dates are estimates based on harvest, packing and carrier schedules, and we will tell you promptly of any expected delay. We are not liable for delays caused by carriers, vessel or flight changes, port congestion, inspections or other events outside our control.",
+          "Delivery takes place, and risk passes to the buyer, as set out in the agreed Incoterm."
+        ]
+      },
+      {
+        "h": "Ownership",
+        "b": ["Ownership of the products passes to the buyer only when we have received payment in full."]
+      },
+      {
+        "h": "Export and import documents",
+        "b": [
+          "We provide the documents listed in the order confirmation, usually the phytosanitary certificate, certificate of origin, commercial invoice, packing list and bill of lading or air waybill.",
+          "The buyer is responsible for import permits and licences, and for telling us in writing, before order confirmation, of any import requirements in the destination country, such as pesticide residue limits, labelling or treatment. We are not liable if products are refused entry because of requirements we were not told about."
+        ]
+      },
+      {
+        "h": "Inspection before shipment",
+        "b": [
+          "We check every lot against the specification before loading, and KEPHIS inspects each consignment before export. The buyer may appoint an independent inspector to inspect at loading, at its own cost and with reasonable notice to us."
+        ]
+      },
+      {
+        "h": "Claims",
+        "b": [
+          "The buyer must inspect the products as soon as they arrive. Claims must be made in writing:",
+          [
+            "Fresh fruit:: within 48 hours of the container or air cargo being unloaded at destination.",
+            "IQF and puree:: within 14 days of arrival.",
+            "Short delivery or missing documents:: within 7 days of arrival."
+          ],
+          "A claim must include lot numbers, photographs, temperature logger records and, for quality claims, a report from an independent surveyor. The buyer must keep the products in proper storage and must not destroy, sell or dispose of them until we have had a reasonable chance to inspect them, unless we agree otherwise in writing.",
+          "We are not responsible for defects arising after risk has passed, including those caused by the carrier, by temperature failures in transit, or by the buyer’s storage, ripening or handling. Such losses should be claimed from the carrier or the cargo insurer."
+        ]
+      },
+      {
+        "h": "Remedies and limits on liability",
+        "b": [
+          "If we accept a valid claim, we will, at our choice, replace the affected products, issue a credit note or refund the price paid for them. This is the buyer’s only remedy for defective or non-conforming products.",
+          "We are not liable for loss of profit, loss of market, loss of business or any indirect or consequential loss. Our total liability under or in connection with a contract is limited to the price of the shipment concerned. Nothing in these terms limits liability for fraud or any other liability that cannot be limited by law."
+        ]
+      },
+      {
+        "h": "Force majeure",
+        "b": [
+          "We are not liable for failure or delay caused by events beyond our reasonable control, including drought, floods, hail, crop failure, pests or plant disease, government action, export restrictions or seasonal export bans, strikes, port closures, shortages of sea or air freight, epidemics, war and civil unrest.",
+          "If such an event lasts more than 30 days, either party may cancel the affected part of the contract by written notice without liability, and we will refund any advance paid for products not shipped."
+        ]
+      },
+      {
+        "h": "Cancellation by the buyer",
+        "b": [
+          "An order cannot be cancelled after order confirmation without our written agreement. If we agree to a cancellation, the buyer must pay the costs we have already incurred, including harvesting, packing, packaging, freight bookings and storage."
+        ]
+      },
+      {
+        "h": "Compliance",
+        "b": [
+          "Each party will comply with the laws that apply to it, including anti-bribery and anti-corruption laws and trade sanctions. We may refuse or cancel an order if supplying it would breach sanctions or export control rules."
+        ]
+      },
+      {
+        "h": "Confidentiality",
+        "b": [
+          "Prices, payment terms and other contract terms are confidential. Neither party will disclose them to anyone except its advisers, banks, insurers or authorities, or where the law requires."
+        ]
+      },
+      {
+        "h": "Governing law and disputes",
+        "b": [
+          "Contracts are governed by the laws of Kenya. The United Nations Convention on Contracts for the International Sale of Goods does not apply.",
+          "The parties will first try to settle any dispute through good-faith discussion. If it is not settled within 30 days, it will be referred to arbitration in Nairobi under the Arbitration Act, 1995, before a single arbitrator appointed under the rules of the Nairobi Centre for International Arbitration. The arbitration will be in English, and the award will be final and binding."
+        ]
+      },
+      {
+        "h": "General",
+        "b": [
+          "If any part of these terms is found invalid, the rest remains in force. Not enforcing a right does not waive it. The buyer may not transfer its rights under a contract without our written consent. Changes to a contract are valid only if both parties agree them in writing."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Cookie policy",
+    "intro": "How todarakenya.com uses cookies and similar technologies, and how you can control them.",
+    "sections": [
+      {
+        "h": "What cookies are",
+        "b": [
+          "Cookies are small files a website stores in your browser. Similar technologies, such as browser local storage, let a website remember information on your device. In this policy we call them all cookies."
+        ]
+      },
+      {
+        "h": "Cookies we use",
+        "b": [
+          {
+            "cols": "minmax(0,1fr) minmax(0,1.6fr) minmax(0,.9fr) minmax(0,.9fr)",
+            "rows": [
+              ["Name", "Purpose", "Type", "Duration"],
+              ["todara-cookie-v1", "Remembers your cookie choice", "Essential", "Until you clear it"],
+              ["todara-quote-v1", "Keeps the products in your quote so you can continue later", "Essential", "Until you clear it"],
+              ["_ga, _ga_*", "Google Analytics: counts visits and shows which pages are used", "Analytics, only with consent", "Up to 2 years"]
+            ]
+          },
+          "Essential cookies are needed for the website and quote form to work and cannot be switched off. Analytics cookies are set only if you select Accept all. We do not use advertising cookies."
+        ]
+      },
+      {
+        "h": "Third-party services",
+        "b": ["If you use the WhatsApp button, WhatsApp, operated by Meta, may set its own cookies under its own policy. We do not control these."]
+      },
+      {
+        "h": "Your choices",
+        "b": [
+          "You can change your choice at any time with the buttons at the top of this page. You can also block or delete cookies in your browser settings, but if you block essential cookies, parts of the website, such as the quote form, may not work."
+        ]
+      },
+      {
+        "h": "Changes to this policy",
+        "b": ["We will update this policy if we change the cookies we use."]
+      }
+    ]
+  }
+}
