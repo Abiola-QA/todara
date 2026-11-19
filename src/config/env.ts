@@ -14,6 +14,8 @@ import { z } from 'zod';
  *                 WhatsApp instead of pretending to succeed.
  * QUOTE_TO_EMAIL  Inbox that receives quote requests (the subject names the desk: fresh, frozen, puree).
  * FORMS_FROM_EMAIL Sender, on a domain verified in Resend.
+ * EMAIL_SITE_URL  Website address used inside the quote emails only (links and the site name in their
+ *                 footers), e.g. the Vercel address before the real domain is connected. Defaults to SITE_URL.
  *
  * Photos: NEXT_PUBLIC_MEDIA_BASE_URL (see src/config/media.ts) is read at build time, not here.
  */
@@ -30,6 +32,10 @@ const schema = z.object({
   RESEND_API_KEY: z.string().min(1).optional(),
   QUOTE_TO_EMAIL: z.email().default('export@todarakenya.com'),
   FORMS_FROM_EMAIL: z.string().min(3).default('Todara website <website@todarakenya.com>'),
+  EMAIL_SITE_URL: z
+    .url()
+    .transform((u) => u.replace(/\/+$/, ''))
+    .optional(),
 });
 
 export type Env = Omit<z.infer<typeof schema>, 'FORMS_DELIVERY'> & { FORMS_DELIVERY: FormsDelivery };

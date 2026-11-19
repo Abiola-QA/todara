@@ -1,12 +1,11 @@
 import { paths } from '@/config/paths';
-import { absoluteUrl } from '@/config/seo';
 import { site } from '@/config/site';
 import { formOf, productById } from '@/lib/catalog';
 import { whatsappLink } from '@/lib/whatsapp';
 
 import { deskList, termsLine } from '../utils/quote-summary';
 
-import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, esc } from './email-layout';
+import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, emailSiteUrl, esc } from './email-layout';
 import type { QuoteEmailInput } from './quote-notification-email';
 
 /** What happens after an enquiry (steps 2–4 of the website's "How an order runs"). */
@@ -57,7 +56,7 @@ export function quoteConfirmationEmail({ ref, quote }: QuoteEmailInput) {
     `<h1 class="title" style="margin:8px 0 14px;font-family:${FONT};font-size:30px;line-height:1.1;letter-spacing:-0.02em;font-weight:600;color:${C.forest}">Thank you, ${esc(first)}.</h1>` +
     `<p style="margin:0 0 22px;font-family:${FONT};font-size:16px;line-height:1.6;color:${C.muted}">` +
     `Your enquiry has gone to our ${esc(desk)}. We will reply to ${esc(details.email)} within one working day with availability and a written offer.</p>` +
-    `<div>${emailButton(whatsapp, 'Continue on WhatsApp')}${emailButton(absoluteUrl(paths.products), 'See all products', 'outline')}</div>` +
+    `<div>${emailButton(whatsapp, 'Continue on WhatsApp')}${emailButton(emailSiteUrl(paths.products), 'See all products', 'outline')}</div>` +
     emailHeading('Your enquiry') +
     emailFacts([
       { label: 'Reference', value: ref },
@@ -76,8 +75,8 @@ export function quoteConfirmationEmail({ ref, quote }: QuoteEmailInput) {
     `${esc(site.legalName)} · ${esc(site.address.street)}, ${esc(site.address.locality)}, ${esc(site.address.country)}<br>` +
     `<a href="mailto:${esc(site.email)}" style="color:${C.cream}">${esc(site.email)}</a> · ${esc(site.whatsappDisplay)}</p>` +
     `<p style="margin:0;font-family:${FONT};font-size:12px;line-height:1.6;color:${C.footerText}">` +
-    `You are receiving this email because you sent a quote request on ${esc(site.domain)}. ` +
-    `<a href="${esc(absoluteUrl(paths.privacy))}" style="color:${C.cream}">Privacy policy</a></p>`;
+    `You are receiving this email because you sent a quote request on ${esc(emailSiteName())}. ` +
+    `<a href="${esc(emailSiteUrl(paths.privacy))}" style="color:${C.cream}">Privacy policy</a></p>`;
 
   const text = [
     `Enquiry received · ${ref}`,
@@ -102,7 +101,7 @@ export function quoteConfirmationEmail({ ref, quote }: QuoteEmailInput) {
     `Need to change something? Reply to this email or message us on WhatsApp on ${site.whatsappDisplay}.`,
     '',
     `${site.legalName} · ${site.address.street}, ${site.address.locality}, ${site.address.country} · ${site.email}`,
-    `You are receiving this email because you sent a quote request on ${site.domain}. Privacy policy: ${absoluteUrl(paths.privacy)}`,
+    `You are receiving this email because you sent a quote request on ${emailSiteName()}. Privacy policy: ${emailSiteUrl(paths.privacy)}`,
   ].join('\n');
 
   return {

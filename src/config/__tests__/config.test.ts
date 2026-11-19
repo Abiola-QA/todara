@@ -20,6 +20,12 @@ describe('readEnv', () => {
   it('rejects invalid values instead of running misconfigured', () => {
     expect(() => readEnv({ SITE_INDEXING: 'yes' })).toThrow();
     expect(() => readEnv({ QUOTE_TO_EMAIL: 'not-an-email' })).toThrow();
+    expect(() => readEnv({ EMAIL_SITE_URL: 'todara.vercel' })).toThrow();
+  });
+
+  it('keeps the email site address optional and trims its trailing slash', () => {
+    expect(readEnv({}).EMAIL_SITE_URL).toBeUndefined();
+    expect(readEnv({ EMAIL_SITE_URL: 'https://todara-the-bug-detective.vercel.app/' }).EMAIL_SITE_URL).toBe('https://todara-the-bug-detective.vercel.app');
   });
 });
 
