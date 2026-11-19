@@ -59,7 +59,7 @@ See `.env.example`. All are optional locally.
 | `FORMS_DELIVERY`             | optional            | `resend` (default in production) or `none` (only logs)                                          |
 | `RESEND_API_KEY`             | Production          | Sending key for quote emails                                                                    |
 | `QUOTE_TO_EMAIL`             | optional            | Inbox for quote requests (default export@todarakenya.com)                                       |
-| `FORMS_FROM_EMAIL`           | optional            | Sender on a domain verified in Resend                                                           |
+| `FORMS_FROM_EMAIL`           | optional            | Sender (default `Todara <export@todarakenya.com>`; todarakenya.com is verified in Resend)       |
 | `EMAIL_SITE_URL`             | optional            | Website address used inside the quote emails only (links and site name); defaults to `SITE_URL` |
 | `BLOB_READ_WRITE_TOKEN`      | your machine only   | Lets `pnpm media:upload` publish photos to Blob                                                 |
 

@@ -4,7 +4,7 @@ const envMock = vi.hoisted(() => ({
   env: {
     RESEND_API_KEY: undefined as string | undefined,
     QUOTE_TO_EMAIL: 'export@todarakenya.com',
-    FORMS_FROM_EMAIL: 'Todara website <website@todarakenya.com>',
+    FORMS_FROM_EMAIL: 'Todara <export@todarakenya.com>',
   },
 }));
 vi.mock('@/config/env', () => envMock);

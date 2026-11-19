@@ -13,7 +13,7 @@ import { z } from 'zod';
  * RESEND_API_KEY  Sending-only Resend key. Without it in production, the form asks the buyer to email or
  *                 WhatsApp instead of pretending to succeed.
  * QUOTE_TO_EMAIL  Inbox that receives quote requests (the subject names the desk: fresh, frozen, puree).
- * FORMS_FROM_EMAIL Sender, on a domain verified in Resend.
+ * FORMS_FROM_EMAIL Sender, on a domain verified in Resend (todarakenya.com is verified; default export@).
  * EMAIL_SITE_URL  Website address used inside the quote emails only (links and the site name in their
  *                 footers), e.g. the Vercel address before the real domain is connected. Defaults to SITE_URL.
  *
@@ -31,7 +31,7 @@ const schema = z.object({
   FORMS_DELIVERY: z.enum(formsDeliveryModes).optional(),
   RESEND_API_KEY: z.string().min(1).optional(),
   QUOTE_TO_EMAIL: z.email().default('export@todarakenya.com'),
-  FORMS_FROM_EMAIL: z.string().min(3).default('Todara website <website@todarakenya.com>'),
+  FORMS_FROM_EMAIL: z.string().min(3).default('Todara <export@todarakenya.com>'),
   EMAIL_SITE_URL: z
     .url()
     .transform((u) => u.replace(/\/+$/, ''))

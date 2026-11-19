@@ -9,6 +9,7 @@ describe('readEnv', () => {
     expect(env.SITE_INDEXING).toBe('off');
     expect(env.FORMS_DELIVERY).toBe('none');
     expect(env.QUOTE_TO_EMAIL).toBe('export@todarakenya.com');
+    expect(env.FORMS_FROM_EMAIL).toBe('Todara <export@todarakenya.com>');
   });
 
   it('emails quote requests by default in production and trims a trailing slash from SITE_URL', () => {
