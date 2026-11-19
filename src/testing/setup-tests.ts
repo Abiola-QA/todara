@@ -68,3 +68,6 @@ vi.stubGlobal(
       dispatchEvent: vi.fn(),
     }) as unknown as MediaQueryList,
 );
+
+// jsdom does not implement scrolling; the quote form scrolls to the top after sending.
+vi.stubGlobal('scrollTo', vi.fn());

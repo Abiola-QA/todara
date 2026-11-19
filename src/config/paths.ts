@@ -14,6 +14,7 @@ export const paths = {
   quote: '/quote',
   privacy: '/privacy',
   terms: '/terms',
+  termsOfSale: '/terms-of-sale',
   cookies: '/cookies',
   specSheets: '/spec-sheets',
   /** One product's sheet inside the spec sheets document. */

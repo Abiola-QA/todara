@@ -40,12 +40,8 @@
   max-width: 760px;
 }
 
-.notice {
-  background: #fbf3e2;
-  border: 1px solid rgba(201, 151, 63, 0.5);
-  padding: 14px 18px;
-  font-size: 14px;
-  line-height: 1.5;
+.eyebrow {
+  composes: eyebrow from '@/styles/layout.module.css';
 }
 
 .title {
@@ -62,6 +58,34 @@
   font-size: 18px;
   line-height: 1.6;
   color: #5c4a3c;
+  text-wrap: pretty;
+}
+
+/* Cookie policy: the visitor's current choice with buttons to change it. */
+.choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding: 18px 20px;
+  background: #fbfaf6;
+  border: 1px solid rgba(58, 42, 31, 0.14);
+}
+
+.choiceText {
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.choiceValue {
+  font-weight: 600;
+}
+
+.choiceButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .sections {
@@ -71,8 +95,8 @@
 .part {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 20px 0;
+  gap: 12px;
+  padding: 24px 0;
   border-bottom: 1px solid rgba(58, 42, 31, 0.12);
 }
 
@@ -87,10 +111,62 @@
   margin: 0;
   font-size: 16.5px;
   line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.list {
+  margin: 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
+.listItem {
+  padding-left: 4px;
+  text-wrap: pretty;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  display: grid;
+  gap: 1px;
+  background: rgba(58, 42, 31, 0.14);
+  border: 1px solid rgba(58, 42, 31, 0.14);
+  min-width: 520px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Rows only group cells for screen readers; the cells sit directly in the grid, as in the design. */
+.row {
+  display: contents;
+}
+
+.cell {
+  padding: 10px 12px;
+  background: #fbfaf6;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.headCell {
+  background: #efe9dc;
+  font-weight: 600;
 }
 
 .updated {
   font-size: 14px;
+  line-height: 1.5;
   color: #5c4a3c;
 }
 

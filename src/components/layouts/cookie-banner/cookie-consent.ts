@@ -1,7 +1,8 @@
 /** The visitor's cookie choice, kept on their device so the banner asks once. */
 export type CookieChoice = 'all' | 'essential';
 
-export const COOKIE_CHOICE_KEY = 'todara-cookie-choice';
+/** Same key as the design, and the name the cookie policy lists. */
+export const COOKIE_CHOICE_KEY = 'todara-cookie-v1';
 
 const listeners = new Set<() => void>();
 /** Used when the browser blocks storage: the choice then holds until the page is reloaded. */
