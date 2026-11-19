@@ -81,10 +81,24 @@ when the site is ready to be found by search engines.
 ## Quote requests
 
 The quote basket lives in the buyer's browser (`localStorage`, key `todara-quote-v1`). Sending runs a server
-action that checks for bots (hidden field + fill time), validates every value against the catalogue,
-rate-limits each connection and emails one message per enquiry to `QUOTE_TO_EMAIL`, with the buyer as
-reply-to and the desks (fresh fruit, frozen, puree) named in the subject. If sending fails the buyer is told to
-email or WhatsApp instead; nothing is lost silently.
+action that checks for bots (hidden field + fill time), validates every value against the catalogue and
+rate-limits each connection, then sends two branded emails through Resend:
+
+1. **To the export team** (`QUOTE_TO_EMAIL`): who is asking, the products with spec codes, terms and notes,
+   with "Reply" and "WhatsApp" buttons. Replying goes straight to the buyer; the desks (fresh fruit, frozen,
+   puree) are named in the subject.
+2. **To the buyer**: a confirmation with the reference, a copy of the enquiry and what happens next. Replies go
+   to the export inbox.
+
+The enquiry counts as sent only once the team's email is accepted; if that fails the buyer is told to email or
+WhatsApp instead, so nothing is lost silently. Templates: `src/features/quote/emails/`. Preview them with a
+sample enquiry (written to `.compare/emails/`):
+
+```bash
+node --experimental-strip-types --import ./tools/ts-loader/register.mjs tools/email-preview.mts
+```
+
+Email logos live in the Blob store (`brand/`), so they show in any inbox.
 
 ## Matching the design
 

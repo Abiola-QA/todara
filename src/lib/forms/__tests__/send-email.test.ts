@@ -36,6 +36,15 @@ describe('sendFormEmail', () => {
     expect(init.headers.Authorization).toBe('Bearer re_test');
   });
 
+  it('sends to another recipient when asked (the buyer’s confirmation), stripping header injection', async () => {
+    envMock.env.RESEND_API_KEY = 're_test';
+    const fetchImpl = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+    await sendFormEmail({ ...email, to: 'buyer@example.com\r\nBcc: victim@example.com' }, fetchImpl);
+    const body = JSON.parse(fetchImpl.mock.calls[0]![1].body);
+    expect(body.to).toEqual(['buyer@example.com Bcc: victim@example.com']);
+    expect(body.to[0]).not.toMatch(/[\r\n]/);
+  });
+
   it('reports a failure instead of pretending the email went out', async () => {
     envMock.env.RESEND_API_KEY = 're_test';
     vi.spyOn(console, 'error').mockImplementation(() => {});

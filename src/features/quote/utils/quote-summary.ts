@@ -14,6 +14,19 @@ export function desksFor(basket: readonly BasketItem[]): string {
   return desks.join(' and ');
 }
 
+/**
+ * The desks in plain English for emails: "fresh fruit desk", "fresh fruit and frozen desks",
+ * "fresh fruit, frozen and puree desks". (The website's on-screen confirmation keeps the design's wording.)
+ */
+export function deskList(basket: readonly BasketItem[]): string {
+  const names = desksFor(basket)
+    .split(' and ')
+    .filter(Boolean)
+    .map((d) => d.replace(/ desk$/, ''));
+  if (names.length <= 1) return names[0] ? `${names[0]} desk` : 'export desk';
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]} desks`;
+}
+
 /** "Hass avocado · 16–18 · 1 × 40 ft per week  /  …" (the confirmation's Products line). */
 export function itemsLine(basket: readonly BasketItem[]): string {
   return basket.map((b) => `${productById(b.id)?.name ?? b.id} · ${b.opt} · ${b.volume}`).join('  /  ');

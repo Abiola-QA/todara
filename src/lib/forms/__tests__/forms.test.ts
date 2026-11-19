@@ -1,6 +1,6 @@
 import { ELAPSED_FIELD, HONEYPOT_FIELD } from '../form-state';
 import { createRateLimiter } from '../rate-limit';
-import { escapeHtml, renderSubmission, sanitizeHeader } from '../render-submission';
+import { escapeHtml, sanitizeHeader } from '../render-submission';
 import { checkSpam, MIN_FILL_MS } from '../spam-guard';
 
 const form = (fields: Record<string, string>) => {
@@ -61,23 +61,12 @@ describe('createRateLimiter', () => {
 });
 
 describe('email rendering', () => {
-  it('escapes HTML so a visitor cannot inject markup into our inbox', () => {
+  it('escapes HTML so a visitor cannot inject markup into an email', () => {
     expect(escapeHtml('<script>alert("x")</script>')).toBe('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
-    const { html } = renderSubmission('New enquiry', [{ label: 'Message', value: '<img src=x onerror=alert(1)>' }]);
-    expect(html).not.toContain('<img');
-    expect(html).toContain('&lt;img');
+    expect(escapeHtml("<img src=x onerror='alert(1)'>")).not.toContain('<img');
   });
 
   it('strips line breaks from header values (no header injection)', () => {
     expect(sanitizeHeader('Hello\r\nBcc: victim@example.com')).toBe('Hello Bcc: victim@example.com');
-  });
-
-  it('leaves out empty fields', () => {
-    const { text } = renderSubmission('New enquiry', [
-      { label: 'Name', value: 'Ada' },
-      { label: 'Company', value: '' },
-    ]);
-    expect(text).toContain('Name:\nAda');
-    expect(text).not.toContain('Company');
   });
 });

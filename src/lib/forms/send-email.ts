@@ -8,16 +8,18 @@ export type OutgoingEmail = {
   subject: string;
   text: string;
   html: string;
-  /** Visitor's address, so the team can reply straight from their inbox. */
+  /** Recipient; defaults to the export team's inbox (QUOTE_TO_EMAIL). */
+  to?: string;
+  /** Where a reply goes: the buyer for team emails, the export inbox for the buyer's confirmation. */
   replyTo?: string;
 };
 
 export type SendResult = { ok: true } | { ok: false; reason: 'not-configured' | 'failed' };
 
 /**
- * Sends a quote request to the export team through Resend's HTTP API.
- * Without RESEND_API_KEY nothing is sent and the caller tells the buyer to
- * email or WhatsApp us instead, so a missing key can never silently swallow an enquiry.
+ * Sends one email through Resend's HTTP API: by default to the export team, or to `to` (the buyer's
+ * confirmation). Without RESEND_API_KEY nothing is sent and the caller tells the buyer to email or WhatsApp
+ * us instead, so a missing key can never silently swallow an enquiry.
  */
 export async function sendFormEmail(email: OutgoingEmail, fetchImpl: typeof fetch = fetch): Promise<SendResult> {
   if (!env.RESEND_API_KEY) return { ok: false, reason: 'not-configured' };
@@ -27,7 +29,7 @@ export async function sendFormEmail(email: OutgoingEmail, fetchImpl: typeof fetc
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from: env.FORMS_FROM_EMAIL,
-        to: [env.QUOTE_TO_EMAIL],
+        to: [email.to ? sanitizeHeader(email.to, 320) : env.QUOTE_TO_EMAIL],
         subject: sanitizeHeader(email.subject),
         text: email.text,
         html: email.html,
