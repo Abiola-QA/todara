@@ -43,6 +43,8 @@ The site reproduces "Todara Website v4.dc.html" exactly. That file is one page t
   forms show an error toast listing what to fix, then scroll to and focus the first problem. Client's request,
   19 November 2026. Any form can do the same with `useFormErrorFeedback` (`src/hooks`): mark fields with
   `aria-invalid="true"` and stand-alone messages with `data-form-error`.
+- Compliance hero: the right column (intro, "Request licence copies" button and note) is centred against the
+  heading on wide screens; the design aligns it to the bottom. Client's request, 19 November 2026.
 
 ## Verifying a change
 

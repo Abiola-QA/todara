@@ -10,7 +10,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
   gap: 28px clamp(40px, 6vw, 96px);
-  align-items: end;
+  /* Centred against the heading on the client's request (the design aligns the right column to the bottom). */
+  align-items: center;
 }
 
 .heroLead {
