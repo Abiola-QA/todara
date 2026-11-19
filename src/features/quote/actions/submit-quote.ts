@@ -8,7 +8,8 @@ import { checkSpam, createRateLimiter } from '@/lib/forms';
 import { clientIp } from '@/lib/forms/client-ip';
 import { sendFormEmail } from '@/lib/forms/send-email';
 
-import { quoteEmail } from '../utils/quote-email';
+import { quoteConfirmationEmail } from '../emails/quote-confirmation-email';
+import { quoteNotificationEmail } from '../emails/quote-notification-email';
 import { desksFor } from '../utils/quote-summary';
 
 import { QUOTE_PAYLOAD_FIELD, quoteFieldErrors, quoteSchema } from './quote-schema';
@@ -25,9 +26,10 @@ export async function newReference() {
 }
 
 /**
- * Receives a quote request: spam checks, validation against the catalogue, a rate limit, then one email to
- * the export team (FORMS_DELIVERY=resend) with the buyer as reply-to. With FORMS_DELIVERY=none (local
- * development) nothing is sent and the request is only logged.
+ * Receives a quote request: spam checks, validation against the catalogue and a rate limit, then two emails
+ * (FORMS_DELIVERY=resend): the request to the export team, with the buyer as reply-to, and a confirmation to
+ * the buyer, with the export inbox as reply-to. With FORMS_DELIVERY=none (local development) nothing is sent
+ * and the request is only logged.
  */
 export async function submitQuote(formData: FormData): Promise<QuoteResult> {
   const verdict = checkSpam(formData);
@@ -53,14 +55,21 @@ export async function submitQuote(formData: FormData): Promise<QuoteResult> {
 
   const ref = await newReference();
   const desk = desksFor(parsed.data.basket);
-  const email = quoteEmail(ref, parsed.data);
+  const input = { ref, quote: parsed.data, receivedAt: new Date() };
+  const teamEmail = quoteNotificationEmail(input);
+  const buyerEmail = quoteConfirmationEmail(input);
 
   if (env.FORMS_DELIVERY === 'none') {
-    console.warn(`[quote] FORMS_DELIVERY=none, not sent: ${email.subject}`);
+    console.warn(`[quote] FORMS_DELIVERY=none, not sent: "${teamEmail.subject}" and the buyer confirmation "${buyerEmail.subject}"`);
     return { ok: true, ref, desk };
   }
 
-  const sent = await sendFormEmail(email);
+  // The enquiry counts as received only once the export team has it.
+  const sent = await sendFormEmail(teamEmail);
   if (!sent.ok) return { ok: false, message: `We could not send your enquiry just now. ${CONTACT_INSTEAD}` };
+
+  // The buyer's copy is a courtesy: if it fails, the enquiry is still with the team and the page confirms it.
+  const confirmed = await sendFormEmail(buyerEmail);
+  if (!confirmed.ok) console.warn(`[quote] ${ref} reached the team, but the buyer confirmation was not sent (${confirmed.reason})`);
   return { ok: true, ref, desk };
 }

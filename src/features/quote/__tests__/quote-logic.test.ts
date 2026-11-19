@@ -1,8 +1,7 @@
 import { emptyDetails, type QuoteDetails } from '@/lib/quote';
 
 import { quoteFieldErrors, quoteSchema } from '../actions/quote-schema';
-import { quoteEmail } from '../utils/quote-email';
-import { desksFor, itemsLine, sentSummary, termsLine } from '../utils/quote-summary';
+import { deskList, desksFor, itemsLine, sentSummary, termsLine } from '../utils/quote-summary';
 import { validateQuote } from '../utils/validate-quote';
 
 const details: QuoteDetails = {
@@ -45,6 +44,12 @@ describe('quote summary', () => {
     expect(desksFor(basket)).toBe('fresh fruit desk and frozen desk');
   });
 
+  it('names the desks in plain English for emails', () => {
+    expect(deskList(basket.slice(0, 1))).toBe('fresh fruit desk');
+    expect(deskList(basket)).toBe('fresh fruit and frozen desks');
+    expect(deskList([...basket, { id: 'mango-puree', volume: '1 drum', opt: '215 kg aseptic drum' }])).toBe('fresh fruit, frozen and puree desks');
+  });
+
   it('builds the confirmation lines like the design', () => {
     expect(itemsLine(basket.slice(0, 1))).toBe('Hass avocado · 16–18 · 1 × 40 ft per week');
     expect(termsLine({ incoterm: 'FOB Mombasa', port: '  ' })).toBe('FOB Mombasa');
@@ -80,15 +85,5 @@ describe('quoteSchema (server)', () => {
       email: 'Enter a valid work email',
       consent: 'Please agree so we can use your details to reply',
     });
-  });
-});
-
-describe('quoteEmail', () => {
-  it('names the reference, company and desks in the subject and lists every product with its spec code', () => {
-    const email = quoteEmail('TD-Q-12345', { basket, details, consent: true } as never);
-    expect(email.subject).toBe('Quote request TD-Q-12345 · Acme Foods · fresh fruit desk and frozen desk');
-    expect(email.replyTo).toBe('jane@acme.example');
-    expect(email.text).toContain('Hass avocado (TD-AV-HS, Fresh fruit) · Counts: 16–18 · Volume: 1 × 40 ft per week');
-    expect(email.html).not.toContain('<script');
   });
 });

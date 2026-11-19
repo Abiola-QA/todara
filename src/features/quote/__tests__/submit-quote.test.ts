@@ -1,7 +1,7 @@
 vi.mock('server-only', () => ({}));
 
 const mocks = vi.hoisted(() => ({
-  env: { FORMS_DELIVERY: 'resend' as 'resend' | 'none' },
+  env: { FORMS_DELIVERY: 'resend' as 'resend' | 'none', SITE_URL: 'https://todarakenya.com', SITE_INDEXING: 'off', QUOTE_TO_EMAIL: 'export@todarakenya.com' },
   send: vi.fn(),
   ip: vi.fn(async () => '102.89.1.20'),
 }));
@@ -35,11 +35,22 @@ describe('submitQuote', () => {
     mocks.ip.mockImplementation(async () => `198.51.100.${Math.floor(Math.random() * 250)}`);
   });
 
-  it('emails a valid quote to the export team and returns a reference and the desk', async () => {
+  it('emails the export team, then the buyer, and returns a reference and the desk', async () => {
     const result = await submitQuote(form(valid));
     expect(result).toMatchObject({ ok: true, desk: 'puree desk', ref: expect.stringMatching(/^TD-Q-\d{5}$/) });
-    expect(mocks.send).toHaveBeenCalledTimes(1);
-    expect(mocks.send.mock.calls[0]![0].subject).toContain('Acme · puree desk');
+    expect(mocks.send).toHaveBeenCalledTimes(2);
+    const [team, buyer] = mocks.send.mock.calls.map((c) => c[0]);
+    expect(team.subject).toContain('Acme · puree desk');
+    expect(team.to).toBeUndefined();
+    expect(team.replyTo).toBe('jane@acme.example');
+    expect(buyer.to).toBe('jane@acme.example');
+    expect(buyer.replyTo).toBe('export@todarakenya.com');
+  });
+
+  it('still confirms the enquiry when only the buyer’s copy fails', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mocks.send.mockResolvedValueOnce({ ok: true }).mockResolvedValueOnce({ ok: false, reason: 'failed' });
+    expect((await submitQuote(form(valid))).ok).toBe(true);
   });
 
   it('pretends success to bots but sends nothing', async () => {
@@ -57,9 +68,10 @@ describe('submitQuote', () => {
     expect((await submitQuote(form('{broken'))).ok).toBe(false);
   });
 
-  it('tells the buyer to email or WhatsApp when delivery fails, instead of claiming success', async () => {
+  it('tells the buyer to email or WhatsApp when delivery fails, and sends them no confirmation', async () => {
     mocks.send.mockResolvedValue({ ok: false, reason: 'not-configured' });
     const result = await submitQuote(form(valid));
+    expect(mocks.send).toHaveBeenCalledTimes(1);
     expect(result).toMatchObject({ ok: false, message: expect.stringContaining('export@todarakenya.com') });
   });
 
