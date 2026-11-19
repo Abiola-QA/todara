@@ -32,9 +32,13 @@ The site reproduces "Todara Website v4.dc.html" exactly. That file is one page t
   TD-Q-…"). Wrap the value in its own `<span>` in those places.
 - The site header and footer use the logo from **logo pack v2** (lowercase "todara"), because that is what
   v4 renders, although a newer pack v3 exists in the design project.
-- Product search matches the whole query as one phrase, so the placeholder's own example "IQF dice" finds nothing.
 - Keyboard focus rings are kept on every control (the design's `all: unset` hides them); this is the one
   deliberate difference, for accessibility.
+
+## Deliberate changes from the design
+
+- Product search matches each word of the query on its own, in any order (the design matched the whole phrase,
+  so its own placeholder example "IQF dice" found nothing). Changed on the client's request, 19 November 2026.
 
 ## Verifying a change
 
