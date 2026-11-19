@@ -19,11 +19,18 @@ export function isActive(pathname: string, href: string) {
   return pathname === href || (href === paths.products && pathname.startsWith(`${paths.products}/`));
 }
 
-/** Products whose name, form or fruit contains the query (the design's search). */
+/**
+ * Products whose name, form or fruit contain every word of the query, in any order, so "IQF dice" finds both
+ * IQF dice products. (The design matched the whole query as one phrase, which found nothing for its own
+ * placeholder example; changed on the client's request.)
+ */
 export function searchProducts(query: string) {
-  const q = query.trim().toLowerCase();
-  if (!q) return [];
-  return products.filter((p) => `${p.name} ${forms[p.form].label} ${p.fruit}`.toLowerCase().includes(q));
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (!words.length) return [];
+  return products.filter((p) => {
+    const text = `${p.name} ${forms[p.form].label} ${p.fruit}`.toLowerCase();
+    return words.every((word) => text.includes(word));
+  });
 }
 
 const formVars = (dot: string, ink: string) => ({ '--dot': dot, '--ink': ink }) as CSSProperties;
@@ -188,7 +195,7 @@ export function SiteHeader() {
                   // The design focuses the field as soon as the panel opens.
 
                   autoFocus
-                  type="search"
+                  type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search: avocado, IQF dice, puree…"

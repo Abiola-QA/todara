@@ -7,8 +7,14 @@ describe('searchProducts', () => {
   it('matches product name, form and fruit, case-insensitively', () => {
     expect(searchProducts('PUREE').map((p) => p.id)).toEqual(['mango-puree', 'avo-pulp']);
     expect(searchProducts('avocado dice').map((p) => p.id)).toEqual(['iqf-avo-dice']);
-    // The design matches the whole query as one phrase, so its own placeholder example "IQF dice" finds nothing.
-    expect(searchProducts('IQF dice')).toEqual([]);
+  });
+
+  it('matches every word on its own, in any order (the placeholder example "IQF dice" finds both dice products)', () => {
+    expect(searchProducts('IQF dice').map((p) => p.id)).toEqual(['iqf-avo-dice', 'iqf-mango-dice']);
+    expect(searchProducts('dice   IQF').map((p) => p.id)).toEqual(['iqf-avo-dice', 'iqf-mango-dice']);
+    expect(searchProducts('mango puree').map((p) => p.id)).toEqual(['mango-puree']);
+    expect(searchProducts('iqf frozen avocado').map((p) => p.id)).toEqual(['iqf-avo-halves', 'iqf-avo-dice']);
+    expect(searchProducts('mango durian')).toEqual([]);
     expect(searchProducts('mango').length).toBe(4);
     expect(searchProducts('   ')).toEqual([]);
   });
@@ -31,7 +37,7 @@ describe('SiteHeader', () => {
   it('opens the search, lists matching products and says when nothing matches', async () => {
     const { user } = renderUi(<SiteHeader />);
     await user.click(screen.getByRole('button', { name: 'Search products' }));
-    const input = screen.getByRole('searchbox', { name: 'Search products' });
+    const input = screen.getByRole('textbox', { name: 'Search products' });
     expect(input).toHaveFocus();
     await user.type(input, 'avocado dice');
     expect(screen.getByRole('link', { name: /IQF avocado dice/ })).toHaveAttribute('href', '/products/iqf-avocado-dice');
@@ -39,7 +45,7 @@ describe('SiteHeader', () => {
     await user.type(input, 'durian');
     expect(screen.getByText('No match. Try avocado, mango, IQF or puree.')).toBeInTheDocument();
     await user.keyboard('{Escape}');
-    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('textbox', { name: 'Search products' })).not.toBeInTheDocument();
   });
 
   it('shows how many products are in the quote', () => {
