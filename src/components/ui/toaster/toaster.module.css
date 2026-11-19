@@ -8,7 +8,8 @@
   right: 16px;
   bottom: auto;
   left: auto;
-  z-index: 60;
+  /* Above the licence request pop-up (z-index 70), so form errors stay visible while it is open. */
+  z-index: 80;
   width: max-content;
   max-width: min(420px, calc(100vw - 32px));
   background: #3a2a1f;

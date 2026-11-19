@@ -1,11 +1,11 @@
 import { paths } from '@/config/paths';
 import { site } from '@/config/site';
 import { formOf, productById } from '@/lib/catalog';
+import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, emailSiteUrl, esc } from '@/lib/email';
 import { whatsappLink } from '@/lib/whatsapp';
 
 import { deskList, termsLine } from '../utils/quote-summary';
 
-import { C, FONT, emailButton, emailDocument, emailFacts, emailHeading, emailSiteName, emailSiteUrl, esc } from './email-layout';
 import type { QuoteEmailInput } from './quote-notification-email';
 
 /** What happens after an enquiry (steps 2–4 of the website's "How an order runs"). */

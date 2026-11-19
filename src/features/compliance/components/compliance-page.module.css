@@ -34,6 +34,44 @@
   text-wrap: balance;
 }
 
+.heroSide {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+.heroAction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+}
+
+/* "Request licence copies →": honey button in the dark hero. */
+.copiesButton {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  background: #c9973f;
+  color: #3a2a1f;
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.copiesButton:hover {
+  background: #d9a84d;
+}
+
+.heroNote {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dce5de;
+}
+
 .heroText {
   margin: 0;
   font-size: 18px;
@@ -195,6 +233,23 @@
   font-size: 15.5px;
   line-height: 1.6;
   color: #5c4a3c;
+}
+
+/* "Request copies →" in the dark "On every order" card. */
+.copiesLink {
+  all: unset;
+  cursor: pointer;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f4efe4;
+  border-bottom: 2px solid #c9973f;
+  padding-bottom: 3px;
+  margin-top: 4px;
+}
+
+.copiesLink:hover {
+  color: #c9973f;
 }
 
 .privacyLink {

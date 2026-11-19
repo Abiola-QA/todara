@@ -5,6 +5,8 @@ import { kephisCovers, licences, shipmentDocuments } from '@/lib/content';
 
 import styles from './compliance-page.module.css';
 import { LicenceCard } from './licence-card';
+import { LicenceRequestDialog } from './licence-request-dialog';
+import { RequestCopiesTrigger } from './request-copies-trigger';
 
 /** Licences and compliance: what Todara holds, what KEPHIS covers and the documents with every order. */
 export function CompliancePage() {
@@ -18,10 +20,16 @@ export function CompliancePage() {
               Licensed avocado and mango exporter. Inspected every shipment.
             </h1>
           </div>
-          <p className={styles.heroText}>
-            A buyer&apos;s first check on a new supplier is regulatory standing. Here is what Todara holds, what it covers, and the documents that travel with
-            every order.
-          </p>
+          <div className={styles.heroSide}>
+            <p className={styles.heroText}>
+              A buyer&apos;s first check on a new supplier is regulatory standing. Here is what Todara holds, what it covers, and the documents that travel with
+              every order.
+            </p>
+            <div className={styles.heroAction}>
+              <RequestCopiesTrigger variant="button" />
+              <span className={styles.heroNote}>Sent as PDFs to the email addresses you give.</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -72,8 +80,9 @@ export function CompliancePage() {
           <span className={styles.noteEyebrowHoney}>On every order</span>
           <span className={styles.noteTitle}>HACCP, GlobalG.A.P. and Phytosanitary certified processing.</span>
           <span className={styles.noteTextLight}>
-            Certificates are shared before a first order. Further certifications will be added here with their scope and reference numbers.
+            Certificates are shared before a first order. Further certifications will be added here as they are issued.
           </span>
+          <RequestCopiesTrigger variant="link" />
         </div>
         <div className={styles.noteLight}>
           <span className={styles.noteEyebrowLeaf}>Data protection</span>
@@ -84,6 +93,8 @@ export function CompliancePage() {
           </Link>
         </div>
       </section>
+
+      <LicenceRequestDialog />
     </>
   );
 }
